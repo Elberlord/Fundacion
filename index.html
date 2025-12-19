@@ -546,8 +546,8 @@
 
         <div class="videoGrid">
           <article class="videoCard reveal" role="button" tabindex="0"
-                   data-video="NRY23HlrznE" data-title="Navidad 2024 · Entrega de regalos (Video 1)">
-            <div class="circlePreview" style="background-image:url('https://img.youtube.com/vi/NRY23HlrznE/hqdefault.jpg')" aria-hidden="true"></div>
+                   data-drive="1aY94cfLokxp_1nMe7syqsgk_WvjkWg11" data-title="Navidad 2024 · Entrega de regalos (Video 1)">
+            <div class="circlePreview" style="background-image:url('https://drive.google.com/thumbnail?id=1aY94cfLokxp_1nMe7syqsgk_WvjkWg11&sz=w600')" aria-hidden="true"></div>
             <div class="videoMeta">
               <h3>Entrega de regalos (Video 1)</h3>
               <p>Un momento real, con comunidad y alegría. 🎁</p>
@@ -560,8 +560,8 @@
           </article>
 
           <article class="videoCard reveal" role="button" tabindex="0"
-                   data-video="EqaJHqMGO9Y" data-title="Navidad 2024 · Entrega de regalos (Video 2)">
-            <div class="circlePreview" style="background-image:url('https://img.youtube.com/vi/EqaJHqMGO9Y/hqdefault.jpg')" aria-hidden="true"></div>
+                   data-drive="10nYPj7oULIWBDEuPBH8hG-zwtTv81qLE" data-title="Navidad 2024 · Entrega de regalos (Video 2)">
+            <div class="circlePreview" style="background-image:url('https://drive.google.com/thumbnail?id=10nYPj7oULIWBDEuPBH8hG-zwtTv81qLE&sz=w600')" aria-hidden="true"></div>
             <div class="videoMeta">
               <h3>Entrega de regalos (Video 2)</h3>
               <p>Más sonrisas, más manos unidas. 💙</p>
@@ -624,8 +624,8 @@
         <button class="closeBtn" id="closeModal" aria-label="Cerrar">✕</button>
       </div>
       <div class="videoFrame">
-        <iframe id="modalIframe" title="Video de YouTube"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        <iframe id="modalIframe" title="Video"
+                allow="autoplay; fullscreen"
                 allowfullscreen></iframe>
       </div>
     </div>
@@ -682,7 +682,7 @@
 
     function openVideo(id, title) {
       modalTitle.textContent = title || 'Video';
-      iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+      iframe.src = `https://drive.google.com/file/d/${id}/preview?autoplay=1`;
       modal.classList.add('open');
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
@@ -695,8 +695,8 @@
       document.body.style.overflow = '';
     }
 
-    document.querySelectorAll('[data-video]').forEach(card => {
-      const handler = () => openVideo(card.dataset.video, card.dataset.title);
+    document.querySelectorAll('[data-drive]').forEach(card => {
+      const handler = () => openVideo(card.dataset.drive, card.dataset.title);
       card.addEventListener('click', handler);
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
