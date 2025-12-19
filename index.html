@@ -1,22 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#0b1220" />
-    <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png" />
-  <meta property="og:title" content="Fundación Sonrisas" />
-  <meta property="og:description" content="Donaciones y actividades solidarias. Regalos de Navidad 2024 y apoyo a comunidades e iglesias." />
-  <meta property="og:image" content="favicon-512.png" />
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#0b1220" name="theme-color"/>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<link href="favicon-512.png" rel="apple-touch-icon" sizes="512x512"/>
+<meta content="Fundación Sonrisas" property="og:title"/>
+<meta content="Donaciones y actividades solidarias. Regalos de Navidad 2024 y apoyo a comunidades e iglesias." property="og:description"/>
+<meta content="favicon-512.png" property="og:image"/>
 <title>Fundación Sonrisas | Regalando alegría</title>
-  <meta name="description" content="Conectamos padrinos con niños que necesitan una razón para sonreír. Compartimos con distintas iglesias y entregamos regalos de Navidad (2024)." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
+<meta content="Conectamos padrinos con niños que necesitan una razón para sonreír. Compartimos con distintas iglesias y entregamos regalos de Navidad (2024)." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
     :root{
       --bg:#0b1220;
       --surface:#0f1a2e;
@@ -390,248 +389,218 @@
       background:#fff; color:#000; padding:.6rem .9rem; border-radius:10px;
     }
     .skip:focus{left:10px; z-index:999}
-  </style>
+  
+    .videoActions{ margin-top:.9rem; }
+    .videoActions .btn{ padding:.45rem .75rem; border-radius:999px; font-weight:800; font-size:.95rem; }
+</style>
 </head>
-
 <body>
-  <a class="skip" href="#inicio">Saltar al contenido</a>
-
-  <header>
-    <div class="container">
-      <div class="nav">
-        <div class="brand">
-          <img class="logoImg" src="fundacion-sonrisas-logo.png" alt="Fundación Sonrisas" width="44" height="44" loading="eager" />
-          <div>
-            <div style="font-size:1.02rem">Fundación <span style="color:var(--brand)">Sonrisas</span></div>
-            <div class="small" style="color:var(--muted); font-weight:600">Regalando alegría, con orden y corazón</div>
-          </div>
-        </div>
-
-        <nav aria-label="Navegación principal">
-          <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#mision">Misión</a></li>
-            <li><a href="#galeria">Galería</a></li>
-            <li><a href="#donar">Sumarte</a></li>
-          </ul>
-        </nav>
-
-        <button class="btn menuBtn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu">Menú</button>
-      </div>
-
-      <div class="mobileMenu" id="mobileMenu">
-        <a href="#inicio">Inicio <span>↘</span></a>
-        <a href="#mision">Misión <span>↘</span></a>
-        <a href="#galeria">Galería <span>↘</span></a>
-        <a href="#donar">Sumarte <span>↘</span></a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <!-- INICIO -->
-    <section id="inicio" class="hero">
-      <div class="container">
-        <div class="heroGrid">
-          <div class="heroCard reveal">
-            <div class="heroInner">
-              <div class="chip"><span class="dot" aria-hidden="true"></span> Navidad 2024 · Iglesias + regalos</div>
-              <h1>350 sonrisas, un solo corazón.</h1>
-              <p class="lead">
+<a class="skip" href="#inicio">Saltar al contenido</a>
+<header>
+<div class="container">
+<div class="nav">
+<div class="brand">
+<img alt="Fundación Sonrisas" class="logoImg" height="44" loading="eager" src="fundacion-sonrisas-logo.png" width="44"/>
+<div>
+<div style="font-size:1.02rem">Fundación <span style="color:var(--brand)">Sonrisas</span></div>
+<div class="small" style="color:var(--muted); font-weight:600">Regalando alegría, con orden y corazón</div>
+</div>
+</div>
+<nav aria-label="Navegación principal">
+<ul>
+<li><a href="#inicio">Inicio</a></li>
+<li><a href="#mision">Misión</a></li>
+<li><a href="#galeria">Galería</a></li>
+<li><a href="#donar">Sumarte</a></li>
+</ul>
+</nav>
+<button aria-controls="mobileMenu" aria-expanded="false" class="btn menuBtn" id="menuBtn">Menú</button>
+</div>
+<div class="mobileMenu" id="mobileMenu">
+<a href="#inicio">Inicio <span>↘</span></a>
+<a href="#mision">Misión <span>↘</span></a>
+<a href="#galeria">Galería <span>↘</span></a>
+<a href="#donar">Sumarte <span>↘</span></a>
+</div>
+</div>
+</header>
+<main>
+<!-- INICIO -->
+<section class="hero" id="inicio">
+<div class="container">
+<div class="heroGrid">
+<div class="heroCard reveal">
+<div class="heroInner">
+<div class="chip"><span aria-hidden="true" class="dot"></span> Navidad 2024 · Iglesias + regalos</div>
+<h1>350 sonrisas, un solo corazón.</h1>
+<p class="lead">
                 Conectamos padrinos con niños que necesitan una razón para sonreír. Compartimos con diferentes iglesias y
                 entregamos regalos de Navidad para crear recuerdos que se quedan a vivir. 🎁
               </p>
-              <div class="heroActions">
-                <a class="btn primary" href="#galeria">Ver videos 2024</a>
-                <a class="btn" href="#donar">Quiero ayudar</a>
-              </div>
-            </div>
-          </div>
-
-          <aside class="heroSide reveal" aria-label="Resumen rápido">
-            <div class="sideItem">
-              <div class="badge"><span class="dot" aria-hidden="true"></span> Impacto</div>
-              <h3>Niños beneficiados</h3>
-              <p><strong style="color:var(--text); font-size:1.15rem">350+</strong> menores de 12 años (meta: más cada año).</p>
-            </div>
-            <div class="sideItem">
-              <div class="badge"><span class="dot" aria-hidden="true"></span> Estilo de trabajo</div>
-              <h3>Simple, transparente</h3>
-              <p>Acciones claras, evidencia visual y seguimiento.</p>
-            </div>
-            <div class="sideItem">
-              <div class="badge"><span class="dot" aria-hidden="true"></span> Comunidad</div>
-              <h3>Con iglesias aliadas</h3>
-              <p>Unimos manos para que el amor sea logística, no solo intención.</p>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- MISIÓN -->
-    <section id="mision">
-      <div class="container">
-        <div class="sectionHead reveal">
-          <div class="kicker">Nuestra misión</div>
-          <h2>Ayuda real, con impacto medible.</h2>
-          <p class="sub">Un puente entre padrinos y niños. Sin drama. Sin humo. Solo acción.</p>
-        </div>
-
-        <div class="grid2">
-          <div class="card reveal">
-            <div class="cardPad">
-              <p style="margin:0 0 1.1rem; color:var(--muted)">
+<div class="heroActions">
+<a class="btn primary" href="#galeria">Ver videos 2024</a>
+<a class="btn" href="#donar">Quiero ayudar</a>
+</div>
+</div>
+</div>
+<aside aria-label="Resumen rápido" class="heroSide reveal">
+<div class="sideItem">
+<div class="badge"><span aria-hidden="true" class="dot"></span> Impacto</div>
+<h3>Niños beneficiados</h3>
+<p><strong style="color:var(--text); font-size:1.15rem">350+</strong> menores de 12 años (meta: más cada año).</p>
+</div>
+<div class="sideItem">
+<div class="badge"><span aria-hidden="true" class="dot"></span> Estilo de trabajo</div>
+<h3>Simple, transparente</h3>
+<p>Acciones claras, evidencia visual y seguimiento.</p>
+</div>
+<div class="sideItem">
+<div class="badge"><span aria-hidden="true" class="dot"></span> Comunidad</div>
+<h3>Con iglesias aliadas</h3>
+<p>Unimos manos para que el amor sea logística, no solo intención.</p>
+</div>
+</aside>
+</div>
+</div>
+</section>
+<!-- MISIÓN -->
+<section id="mision">
+<div class="container">
+<div class="sectionHead reveal">
+<div class="kicker">Nuestra misión</div>
+<h2>Ayuda real, con impacto medible.</h2>
+<p class="sub">Un puente entre padrinos y niños. Sin drama. Sin humo. Solo acción.</p>
+</div>
+<div class="grid2">
+<div class="card reveal">
+<div class="cardPad">
+<p style="margin:0 0 1.1rem; color:var(--muted)">
                 Conectamos padrinos con niños que necesitan una razón para sonreír.
                 Actualmente beneficiamos a <strong style="color:var(--text)">350 niños menores de 12 años</strong>,
                 y nuestra visión es expandirnos para llegar a muchos más.
               </p>
+<div class="stats">
+<div class="stat">
+<strong>350+</strong>
+<span>Niños beneficiados</span>
+</div>
+<div class="stat">
+<strong>2</strong>
+<span>Años de trayectoria</span>
+</div>
+<div class="stat">
+<strong>100%</strong>
+<span>Compromiso social</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card reveal">
+<div class="cardPad">
+<div class="list">
+<div class="listItem">
+<div aria-hidden="true" class="icon">🤝</div>
+<div>
+<h4>Alianzas con propósito</h4>
+<p>Trabajamos con iglesias y comunidad para que cada entrega tenga orden y alcance.</p>
+</div>
+</div>
+<div class="listItem">
+<div aria-hidden="true" class="icon">🧾</div>
+<div>
+<h4>Transparencia</h4>
+<p>Mostramos evidencias, resultados y momentos, sin maquillaje.</p>
+</div>
+</div>
+<div class="listItem">
+<div aria-hidden="true" class="icon">🎄</div>
+<div>
+<h4>Navidad con sentido</h4>
+<p>Regalos, sí. Pero también dignidad, alegría y pertenencia.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- GALERÍA -->
+<section id="galeria">
+<div class="container">
+<div class="sectionHead reveal">
+<div class="kicker">Galería</div>
+<h2>Navidad 2024: momentos en video</h2>
+<p class="sub">Compartiendo con diferentes iglesias y entregando regalos. Toca un video para verlo.</p>
+</div>
+<div class="videoGrid">
+<article class="videoCard reveal" data-drive="1aY94cfLokxp_1nMe7syqsgk_WvjkWg11" data-title="Navidad 2024 · Entrega de regalos (Video 1)" role="button" tabindex="0">
+<div aria-hidden="true" class="circlePreview" style="background-image:url('https://drive.google.com/thumbnail?id=1aY94cfLokxp_1nMe7syqsgk_WvjkWg11&amp;sz=w600')"></div>
+<div class="videoMeta">
+<h3>Entrega de regalos (Video 1)</h3>
+<p>Un momento real, con comunidad y alegría. 🎁</p>
+<div class="tagRow">
+<span class="chip">2024</span>
+<span class="chip">Iglesias</span>
+<span class="chip">Navidad</span>
+</div>
+<div class="videoActions"><a class="btn" data-open-drive="1" href="https://drive.google.com/file/d/1aY94cfLokxp_1nMe7syqsgk_WvjkWg11/view?usp=sharing" rel="noopener noreferrer" target="_blank">Abrir en Drive</a></div></div>
+</article>
+<article class="videoCard reveal" data-drive="10nYPj7oULIWBDEuPBH8hG-zwtTv81qLE" data-title="Navidad 2024 · Entrega de regalos (Video 2)" role="button" tabindex="0">
+<div aria-hidden="true" class="circlePreview" style="background-image:url('https://drive.google.com/thumbnail?id=10nYPj7oULIWBDEuPBH8hG-zwtTv81qLE&amp;sz=w600')"></div>
+<div class="videoMeta">
+<h3>Entrega de regalos (Video 2)</h3>
+<p>Más sonrisas, más manos unidas. 💙</p>
+<div class="tagRow">
+<span class="chip">2024</span>
+<span class="chip">Comunidad</span>
+<span class="chip">Solidaridad</span>
+</div>
+<div class="videoActions"><a class="btn" data-open-drive="1" href="https://drive.google.com/file/d/10nYPj7oULIWBDEuPBH8hG-zwtTv81qLE/view?usp=sharing" rel="noopener noreferrer" target="_blank">Abrir en Drive</a></div></div>
+</article>
+</div>
+</div>
+</section>
+<!-- DONAR / SUMARTE -->
+<section id="donar">
+<div class="container">
+<div class="ctaBlock reveal">
+<div>
+<div class="kicker">Sumarte</div>
+<h2 style="margin:.25rem 0 .45rem">¿Quieres ser parte del cambio?</h2>
+<p>Conviértete en padrino y regala una sonrisa esta Navidad. (Aquí puedes enlazar tu formulario o WhatsApp.)</p>
+</div>
+<div style="display:flex; gap:.7rem; flex-wrap:wrap">
+<button class="btn primary" id="ctaPadrino">Quiero ser padrino</button>
+<a class="btn" href="#galeria">Ver evidencia</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="container">
+<div class="footerGrid">
+<div>
+<div class="brand" style="margin-bottom:.35rem">
+<div aria-hidden="true" class="logo" style="width:34px;height:34px;border-radius:12px"></div>
+<div style="font-weight:850">Fundación Sonrisas</div>
+</div>
+<div class="small">Hecho para mostrar impacto con una presentación profesional.</div>
+</div>
+<div class="small">
+<div style="font-weight:750; color:var(--text); margin-bottom:.4rem">Contacto</div>
+<div>Correo: <span style="opacity:.85">tu-correo@ejemplo.com</span></div>
+<div>WhatsApp: <span style="opacity:.85">(+506) 0000-0000</span></div>
+<div style="margin-top:.6rem; opacity:.75">Actualiza estos datos con los reales.</div>
+</div>
+</div>
+<div class="small" style="margin-top:1.2rem; opacity:.7">© 2025 Fundación Sonrisas</div>
+</div>
+</footer>
+<!-- Modal -->
 
-              <div class="stats">
-                <div class="stat">
-                  <strong>350+</strong>
-                  <span>Niños beneficiados</span>
-                </div>
-                <div class="stat">
-                  <strong>2</strong>
-                  <span>Años de trayectoria</span>
-                </div>
-                <div class="stat">
-                  <strong>100%</strong>
-                  <span>Compromiso social</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card reveal">
-            <div class="cardPad">
-              <div class="list">
-                <div class="listItem">
-                  <div class="icon" aria-hidden="true">🤝</div>
-                  <div>
-                    <h4>Alianzas con propósito</h4>
-                    <p>Trabajamos con iglesias y comunidad para que cada entrega tenga orden y alcance.</p>
-                  </div>
-                </div>
-                <div class="listItem">
-                  <div class="icon" aria-hidden="true">🧾</div>
-                  <div>
-                    <h4>Transparencia</h4>
-                    <p>Mostramos evidencias, resultados y momentos, sin maquillaje.</p>
-                  </div>
-                </div>
-                <div class="listItem">
-                  <div class="icon" aria-hidden="true">🎄</div>
-                  <div>
-                    <h4>Navidad con sentido</h4>
-                    <p>Regalos, sí. Pero también dignidad, alegría y pertenencia.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALERÍA -->
-    <section id="galeria">
-      <div class="container">
-        <div class="sectionHead reveal">
-          <div class="kicker">Galería</div>
-          <h2>Navidad 2024: momentos en video</h2>
-          <p class="sub">Compartiendo con diferentes iglesias y entregando regalos. Toca un video para verlo.</p>
-        </div>
-
-        <div class="videoGrid">
-          <article class="videoCard reveal" role="button" tabindex="0"
-                   data-drive="1aY94cfLokxp_1nMe7syqsgk_WvjkWg11" data-title="Navidad 2024 · Entrega de regalos (Video 1)">
-            <div class="circlePreview" style="background-image:url('https://drive.google.com/thumbnail?id=1aY94cfLokxp_1nMe7syqsgk_WvjkWg11&sz=w600')" aria-hidden="true"></div>
-            <div class="videoMeta">
-              <h3>Entrega de regalos (Video 1)</h3>
-              <p>Un momento real, con comunidad y alegría. 🎁</p>
-              <div class="tagRow">
-                <span class="chip">2024</span>
-                <span class="chip">Iglesias</span>
-                <span class="chip">Navidad</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="videoCard reveal" role="button" tabindex="0"
-                   data-drive="10nYPj7oULIWBDEuPBH8hG-zwtTv81qLE" data-title="Navidad 2024 · Entrega de regalos (Video 2)">
-            <div class="circlePreview" style="background-image:url('https://drive.google.com/thumbnail?id=10nYPj7oULIWBDEuPBH8hG-zwtTv81qLE&sz=w600')" aria-hidden="true"></div>
-            <div class="videoMeta">
-              <h3>Entrega de regalos (Video 2)</h3>
-              <p>Más sonrisas, más manos unidas. 💙</p>
-              <div class="tagRow">
-                <span class="chip">2024</span>
-                <span class="chip">Comunidad</span>
-                <span class="chip">Solidaridad</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- DONAR / SUMARTE -->
-    <section id="donar">
-      <div class="container">
-        <div class="ctaBlock reveal">
-          <div>
-            <div class="kicker">Sumarte</div>
-            <h2 style="margin:.25rem 0 .45rem">¿Quieres ser parte del cambio?</h2>
-            <p>Conviértete en padrino y regala una sonrisa esta Navidad. (Aquí puedes enlazar tu formulario o WhatsApp.)</p>
-          </div>
-          <div style="display:flex; gap:.7rem; flex-wrap:wrap">
-            <button class="btn primary" id="ctaPadrino">Quiero ser padrino</button>
-            <a class="btn" href="#galeria">Ver evidencia</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footerGrid">
-        <div>
-          <div class="brand" style="margin-bottom:.35rem">
-            <div class="logo" aria-hidden="true" style="width:34px;height:34px;border-radius:12px"></div>
-            <div style="font-weight:850">Fundación Sonrisas</div>
-          </div>
-          <div class="small">Hecho para mostrar impacto con una presentación profesional.</div>
-        </div>
-
-        <div class="small">
-          <div style="font-weight:750; color:var(--text); margin-bottom:.4rem">Contacto</div>
-          <div>Correo: <span style="opacity:.85">tu-correo@ejemplo.com</span></div>
-          <div>WhatsApp: <span style="opacity:.85">(+506) 0000-0000</span></div>
-          <div style="margin-top:.6rem; opacity:.75">Actualiza estos datos con los reales.</div>
-        </div>
-      </div>
-      <div class="small" style="margin-top:1.2rem; opacity:.7">© 2025 Fundación Sonrisas</div>
-    </div>
-  </footer>
-
-  <!-- Modal -->
-  <div class="modal" id="videoModal" aria-hidden="true" role="dialog" aria-label="Reproductor de video">
-    <div class="modalPanel">
-      <div class="modalTop">
-        <div class="title" id="modalTitle">Video</div>
-        <button class="closeBtn" id="closeModal" aria-label="Cerrar">✕</button>
-      </div>
-      <div class="videoFrame">
-        <iframe id="modalIframe" title="Video"
-                allow="autoplay; fullscreen"
-                allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-
-  <script>
+<script>
     // Mobile menu
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -674,29 +643,14 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Video modal
-    const modal = document.getElementById('videoModal');
-    const iframe = document.getElementById('modalIframe');
-    const modalTitle = document.getElementById('modalTitle');
-    const closeModal = document.getElementById('closeModal');
-
-    function openVideo(id, title) {
-      modalTitle.textContent = title || 'Video';
-      iframe.src = `https://drive.google.com/file/d/${id}/preview?autoplay=1`;
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeVideo() {
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden', 'true');
-      iframe.src = '';
-      document.body.style.overflow = '';
+    // Videos (abrir en Drive)
+    function openVideoInDrive(id) {
+      const url = `https://drive.google.com/file/d/${id}/view?usp=sharing`;
+      window.open(url, '_blank', 'noopener,noreferrer');
     }
 
     document.querySelectorAll('[data-drive]').forEach(card => {
-      const handler = () => openVideo(card.dataset.drive, card.dataset.title);
+      const handler = () => openVideoInDrive(card.dataset.drive);
       card.addEventListener('click', handler);
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -706,13 +660,6 @@
       });
     });
 
-    closeModal?.addEventListener('click', closeVideo);
-    modal?.addEventListener('click', (e) => {
-      if (e.target === modal) closeVideo();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('open')) closeVideo();
-    });
   </script>
 </body>
 </html>
