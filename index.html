@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fundación Sonrisas</title>
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon-512.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #070B14;
+      --panel: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --muted2: rgba(255,255,255,.55);
+      --brand: #57D2FF;
+      --brand2:#7CFFB2;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 22px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(87,210,255,.18), transparent 60%),
+                  radial-gradient(900px 520px at 90% 30%, rgba(124,255,178,.12), transparent 62%),
+                  var(--bg);
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), 92vw); margin: 0 auto; }
+
+    /* Nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(to bottom, rgba(7,11,20,.86), rgba(7,11,20,.62));
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 18px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 260px;
+    }
+    .brand img {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      box-shadow: 0 10px 30px rgba(87,210,255,.22);
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+    }
+    .brand-title .name {
+      font-weight: 800;
+      letter-spacing: .2px;
+      font-size: 15px;
+      background: linear-gradient(90deg, rgba(255,255,255,.98), rgba(87,210,255,.98), rgba(124,255,178,.92));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 22px rgba(87,210,255,.14);
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,.28));
+    }
+    .brand-title .tag {
+      font-size: 12px;
+      color: var(--muted2);
+      margin-top: 2px;
+    }
+    .menu {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+    .menu a {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 10px 10px;
+      border-radius: 12px;
+      transition: .15s ease;
+    }
+    .menu a:hover {
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.92);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      min-height: 420px;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(7,11,20,.18), rgba(7,11,20,.55)),
+        url("fundacion-sonrisas-web-hero.jpg");
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.02);
+      filter: saturate(1.05) contrast(1.05);
+    }
+    .hero::after {
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 520px at 15% 25%, rgba(87,210,255,.18), transparent 62%),
+        radial-gradient(760px 520px at 85% 30%, rgba(124,255,178,.12), transparent 64%);
+      pointer-events:none;
+    }
+    .hero-inner {
+      position: relative;
+      padding: 64px 0 44px;
+      min-height: 420px;
+      display: grid;
+      align-content: end;
+    }
+    .hero-pills {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(10,16,30,.40);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 18px 55px rgba(0,0,0,.32);
+      font-weight: 800;
+      font-size: 13px;
+      color: rgba(255,255,255,.92);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .pill:hover {
+      transform: translateY(-1px);
+      background: rgba(10,16,30,.54);
+      border-color: rgba(255,255,255,.26);
+    }
+    .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.95), rgba(255,255,255,.2)),
+                  linear-gradient(180deg, var(--brand), var(--brand2));
+      box-shadow: 0 0 0 4px rgba(87,210,255,.12);
+    }
+
+    /* Sections */
+    section { padding: 54px 0; }
+    .section-title {
+      font-size: 34px;
+      letter-spacing: -.6px;
+      margin: 0 0 10px;
+    }
+    .section-sub {
+      color: var(--muted);
+      margin: 0 0 24px;
+      line-height: 1.6;
+      max-width: 76ch;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .card {
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: -.2px;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+    .big {
+      font-size: 44px;
+      line-height: 1.04;
+      margin: 0 0 10px;
+      letter-spacing: -1px;
+    }
+    .lead {
+      margin: 0 0 16px;
+      color: rgba(255,255,255,.78);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.92);
+      font-weight: 800;
+      font-size: 13px;
+      cursor: pointer;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.22);
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, rgba(87,210,255,.24), rgba(124,255,178,.18));
+      border-color: rgba(87,210,255,.28);
+    }
+
+    /* Lists */
+    .list {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,.78);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+    .list li { margin: 6px 0; }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .video-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      box-shadow: var(--shadow);
+    }
+    .video-top {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      padding: 16px 16px 10px;
+    }
+    .video-title {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight: 900;
+    }
+    .thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background:
+        linear-gradient(180deg, rgba(7,11,20,.20), rgba(7,11,20,.72)),
+        url("https://drive.google.com/thumbnail?id=1aY94cfLokxp_1nMe7syqsgk_WvjkWg11&sz=w1200");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.02);
+    }
+    .thumb.two {
+      background:
+        linear-gradient(180deg, rgba(7,11,20,.20), rgba(7,11,20,.72)),
+        url("https://drive.google.com/thumbnail?id=10nYPj7oULIWBDEuPBH8hG-zwtTv81qLE&sz=w1200");
+      background-size: cover;
+      background-position: center;
+    }
+    .play {
+      position:absolute;
+      inset:auto 18px 18px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      pointer-events:none;
+    }
+    .play .chip {
+      pointer-events:auto;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(10,16,30,.46);
+      backdrop-filter: blur(12px);
+      font-weight: 900;
+      font-size: 12px;
+    }
+
+    footer {
+      padding: 26px 0 42px;
+      border-top: 1px solid rgba(255,255,255,.06);
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+    }
+
+    @media (max-width: 980px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .big { font-size: 40px; }
+      .hero, .hero-inner { min-height: 360px; }
+    }
+    @media (max-width: 560px) {
+      .big { font-size: 34px; }
+      .section-title { font-size: 28px; }
+      .menu { gap: 8px; }
+      .menu a { padding: 8px 8px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#inicio">
+        <img src="fundacion-sonrisas-logo.png" alt="Logo Fundación Sonrisas">
+        <div class="brand-title">
+          <div class="name">Fundación Sonrisas</div>
+          <div class="tag">Regalando alegría, con orden y corazón</div>
+        </div>
+      </a>
+
+      <nav class="menu" aria-label="Menú principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#impacto">Impacto</a>
+        <a href="#historia">Historia</a>
+        <a href="#galeria">Galería</a>
+        <a href="#sumarte">Sumarte</a>
+        <a href="https://www.facebook.com/profile.php?id=61585114094717" target="_blank" rel="noopener">Facebook</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO: solo pastillas encima del banner -->
+  <section class="hero" id="inicio" aria-label="Banner principal">
+    <div class="container hero-inner">
+      <div class="hero-pills">
+        <a class="pill" href="#sumarte" title="Convertirme en padrino/madrina">
+          <span class="dot" aria-hidden="true"></span>
+          Convertirme en padrino/madrina
+        </a>
+        <a class="pill" href="#galeria" title="Ver evidencias del 2024">
+          <span class="dot" aria-hidden="true"></span>
+          Año 2024
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="impacto">
+    <div class="container">
+      <div class="grid-2">
+        <div class="card">
+          <div class="pill" style="width:fit-content; margin-bottom: 14px;">
+            <span class="dot" aria-hidden="true"></span>
+            Navidad 2024 • Iglesias + regalos
+          </div>
+          <h1 class="big">Más sonrisas, un solo corazón.</h1>
+          <p class="lead">
+            Conectamos padrinos y madrinas con niños que necesitan una razón para sonreír.
+            Compartimos con diferentes iglesias y entregamos regalos para crear recuerdos que se quedan a vivir. 🎁
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#galeria">Ver evidencia 2024</a>
+            <a class="btn" href="#sumarte">Quiero ayudar</a>
+          </div>
+        </div>
+
+        <div class="grid-3" style="grid-template-columns: 1fr; gap: 14px;">
+          <div class="card">
+            <h3>Impacto</h3>
+            <p><b>Niños beneficiados</b></p>
+            <p style="margin-top:8px;">Apoyamos a menores en situación vulnerable (meta: crecer cada año).</p>
+          </div>
+          <div class="card">
+            <h3>Estilo de trabajo</h3>
+            <p><b>Simple, transparente</b></p>
+            <p style="margin-top:8px;">Acciones claras, evidencia visual y seguimiento.</p>
+          </div>
+          <div class="card">
+            <h3>Comunidad</h3>
+            <p><b>Con iglesias aliadas</b></p>
+            <p style="margin-top:8px;">Unimos manos para que el amor sea logística, no solo intención.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="historia">
+    <div class="container">
+      <h2 class="section-title">¿Quiénes somos?</h2>
+      <p class="section-sub">
+        Fundación Sonrisas nace con una idea sencilla: que ningún niño se quede sin un detalle que le recuerde que importa.
+        Organizamos ayuda por temporadas y también cuando la vida lo pide, con apoyo de padrinos, madrinas y donaciones.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Nuestra forma de ayudar</h3>
+          <p>
+            Buscamos padrinos y madrinas que deseen colaborar con un regalo para un niñ@ desfavorecido o de escasos recursos.
+            También recogemos efectivo cuando se necesita completar compras o logística.
+          </p>
+
+          <ul class="list">
+            <li><b>Navidad:</b> regalos y convivencia.</li>
+            <li><b>Inicio de clases:</b> útiles, ropa y apoyo escolar.</li>
+            <li><b>Día del niño:</b> actividades y fiesta.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Donaciones que recibimos</h3>
+          <p>
+            Aceptamos donaciones de ropita en buen estado que ya no se usa o zapatos para niños. Todo se organiza con cuidado,
+            y se entrega donde realmente hace falta.
+          </p>
+
+          <div class="actions" style="margin-top:16px;">
+            <a class="btn primary" href="#sumarte">Quiero ser padrino/madrina</a>
+            <a class="btn" href="#galeria">Ver evidencias</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <div class="container">
+      <h2 class="section-title">Galería 2024</h2>
+      <p class="section-sub">
+        Evidencia visual de actividades y entregas. (Los videos abren directo en Google Drive para evitar bloqueos por música).
+      </p>
+
+      <div class="gallery-grid">
+        <a class="video-card" href="https://drive.google.com/file/d/1aY94cfLokxp_1nMe7syqsgk_WvjkWg11/view?usp=sharing" target="_blank" rel="noopener">
+          <div class="video-top">
+            <div class="video-title"><span class="dot" aria-hidden="true"></span> Video 1 • Entrega de regalos</div>
+            <div class="btn" style="padding:10px 12px; border-radius: 999px; font-size:12px;">Abrir en Drive</div>
+          </div>
+          <div class="thumb"></div>
+          <div class="play">
+            <div class="chip"><span class="dot" aria-hidden="true"></span> Ver video</div>
+            <div class="chip">2024</div>
+          </div>
+        </a>
+
+        <a class="video-card" href="https://drive.google.com/file/d/10nYPj7oULIWBDEuPBH8hG-zwtTv81qLE/view?usp=sharing" target="_blank" rel="noopener">
+          <div class="video-top">
+            <div class="video-title"><span class="dot" aria-hidden="true"></span> Video 2 • Compartiendo con iglesias</div>
+            <div class="btn" style="padding:10px 12px; border-radius: 999px; font-size:12px;">Abrir en Drive</div>
+          </div>
+          <div class="thumb two"></div>
+          <div class="play">
+            <div class="chip"><span class="dot" aria-hidden="true"></span> Ver video</div>
+            <div class="chip">2024</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="sumarte">
+    <div class="container">
+      <div class="card">
+        <h2 class="section-title" style="margin-bottom: 10px;">Sumarte</h2>
+        <p class="section-sub" style="margin-bottom: 16px;">
+          Este sitio web existe para que la fundación tenga un rostro y pueda darse a conocer con un simple link.
+          Si querés apoyar, podés hacerlo como padrino/madrina o con donaciones de ropa, zapatos o útiles.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="https://forms.gle/i2SJRg2fiqmMSgE16" target="_blank" rel="noopener">Quiero ser padrino/madrina</a>
+          <a class="btn" href="https://www.facebook.com/profile.php?id=61585114094717" target="_blank" rel="noopener">Quiero donar ropa / útiles</a>
+        </div>
+
+        <p style="margin-top:14px; color: rgba(255,255,255,.55); font-size: 12px;">
+          Cuando tengas WhatsApp, conectamos este botón para abrir el chat directo con mensaje automático.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      Fundación Sonrisas • <a href="https://www.facebook.com/profile.php?id=61585114094717" target="_blank" rel="noopener" style="text-decoration:underline; text-underline-offset:3px;">Facebook</a>
+    </div>
+  </footer>
+</body>
+</html>
