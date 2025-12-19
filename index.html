@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundación Sonrisas - Regalando Alegría a Niños</title>
+    <style>
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .slogan {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Navegación */
+        .nav {
+            background: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-button {
+            padding: 12px 30px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #ff5252;
+        }
+        
+        /* Secciones */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-dark {
+            background: #fff;
+        }
+        
+        .section-light {
+            background: #f8f9fa;
+        }
+        
+        .section-cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: #667eea;
+        }
+        
+        
+/* Galería */
+.video-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+    align-items: start;
+}
+
+.video-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.video-circle {
+    width: 260px;
+    height: 260px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #000;
+    border: 6px solid rgba(102,126,234,0.25);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+}
+
+.video-circle iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-card h3 {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    color: #222;
+}
+
+.video-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0.5rem 0 1rem;
+}
+
+.video-link {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #667eea;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: bold;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.video-link:hover {
+    background: #5a6de0;
+    transform: translateY(-1px);
+}
+
+/* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+.nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .video-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .video-circle {
+                width: 220px;
+                height: 220px;
+            }
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">🌟 Fundación Sonrisas</div>
+        <p class="slogan">Regalando sonrisas, construyendo futuros</p>
+    </header>
+
+    <!-- Navegación -->
+    <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#mision">Nuestra Misión</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#donar">Cómo Ayudar</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>350 Sonrisas, Un Solo Corazón</h1>
+            <p>Juntos podemos llevar alegría a más niños cada año</p>
+            <button class="cta-button">Ver Nuestro Impacto</button>
+        </div>
+    </section>
+
+    <!-- Misión -->
+    <section class="section section-dark" id="mision">
+        <div class="container">
+            <h2>Nuestra Misión</h2>
+            <p>Conectamos padrinos con niños que necesitan una razón para sonreír. 
+               Actualmente beneficiamos a <strong>350 niños menores de 12 años</strong>, 
+               pero nuestra visión es expandirnos para llegar a muchos más.</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>350+</h3>
+                    <p>Niños Beneficiados</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2</h3>
+                    <p>Años de Trayectoria</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Compromiso Social</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="section section-light" id="galeria">
+        <div class="container">
+            <h2>Nuestros Momentos</h2>
+            <p>Estos son algunos de los momentos especiales que vivimos en Navidad 2024, compartiendo con diferentes iglesias y entregando regalos</p>
+            
+            
+<!-- Videos: Navidad 2024 -->
+<div class="video-gallery">
+    <div class="video-card">
+        <div class="video-circle" aria-label="Video: Compartiendo con iglesias - Navidad 2024">
+            <iframe 
+                src="https://www.youtube.com/embed/NRY23HlrznE?rel=0" 
+                title="Navidad 2024 - Compartiendo con iglesias"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <h3>Navidad 2024: Compartiendo con Iglesias</h3>
+        <p>Unimos manos y sonrisas con diferentes iglesias para llevar esperanza y alegría.</p>
+        <a class="video-link" href="https://youtu.be/NRY23HlrznE" target="_blank" rel="noopener">Ver en YouTube</a>
+    </div>
+
+    <div class="video-card">
+        <div class="video-circle" aria-label="Video: Entrega de regalos - Navidad 2024">
+            <iframe 
+                src="https://www.youtube.com/embed/EqaJHqMGO9Y?rel=0" 
+                title="Navidad 2024 - Entrega de regalos"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <h3>Navidad 2024: Entrega de Regalos</h3>
+        <p>Momentos reales, regalos reales, corazones reales. Así se ve una navidad con propósito.</p>
+        <a class="video-link" href="https://youtu.be/EqaJHqMGO9Y" target="_blank" rel="noopener">Ver en YouTube</a>
+    </div>
+</div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-cta" id="donar">
+        <div class="container">
+            <h2>¿Quieres Ser Parte del Cambio?</h2>
+            <p>Conviértete en padrino y regala una sonrisa esta navidad</p>
+            <button class="cta-button">Quiero Ser Padrino</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="container">
+            <p>📧 contacto@fundacionsonrisas.org | 📞 +57 300 123 4567</p>
+            <p>&copy; 2024 Fundación Sonrisas. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript básico para interactividad
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll para navegación
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Animación para los botones CTA
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('¡Gracias por tu interés! Pronto tendremos el formulario de padrinos activo.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
