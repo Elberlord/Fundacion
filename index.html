@@ -358,13 +358,25 @@
 </head>
 
 <body>
+
+    <div style="background: rgba(255,86,86,.18); border-bottom: 1px solid rgba(255,86,86,.25);">
+      <div class="container" style="padding:10px 0; display:flex; gap:10px; align-items:center; justify-content:center; text-align:center;">
+        <span style="display:inline-flex; align-items:center; gap:10px; padding:8px 12px; border-radius:999px; background: rgba(255,86,86,.16); border:1px solid rgba(255,86,86,.24); font-weight:900; font-size:12px; letter-spacing:.6px;">
+          DEMO
+        </span>
+        <span style="color: rgba(255,255,255,.78); font-size:13px;">
+          Sitio en modo demostración. <b>No envíes dinero</b> a los números SINPE mostrados.
+        </span>
+      </div>
+    </div>
+
   <header class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#inicio">
         <img src="fundacion-sonrisas-logo.png" alt="Logo Sonrisas 365">
         <div class="brand-title">
           <div class="name">Sonrisas 365</div>
-          <div class="tag">Regalando alegría, con orden y corazón (todo el año)</div>
+          <div class="tag">Una sonrisa cambia el día (todo el año)</div>
         </div>
       </a>
 
@@ -383,6 +395,7 @@
   <section class="hero" id="inicio" aria-label="Banner principal">
     <div class="container hero-inner">
       <div class="hero-pills">
+        <span class="pill" style="pointer-events:none; opacity:.92;"><span class="dot" aria-hidden="true"></span>DEMO</span>
         <a class="pill" href="#sumarte" title="Convertirme en padrino/madrina">
           <span class="dot" aria-hidden="true"></span>
           Convertirme en padrino/madrina
@@ -524,7 +537,8 @@
 
         <div class="actions">
           <a class="btn primary" href="https://forms.gle/i2SJRg2fiqmMSgE16" target="_blank" rel="noopener">Quiero ser padrino/madrina</a>
-          <a class="btn" href="https://www.facebook.com/profile.php?id=61585114094717" target="_blank" rel="noopener">Quiero donar ropa / útiles</a>
+          <a class="btn" href="https://www.facebook.com/profile.php?id=61585114094717" target="_blank" rel="noopener">Contactar por Facebook</a>
+          <a class="btn ghost" href="https://forms.gle/RECIBO_DEMO" target="_blank" rel="noopener">Solicitar recibo (DEMO - ejemplo)</a>
         </div>
 
         <p style="margin-top:14px; color: rgba(255,255,255,.55); font-size: 12px;">
@@ -532,6 +546,35 @@
         </p>
       </div>
     </div>
+  
+        <div class="card" style="margin-top:16px;">
+          <h3 style="margin:0 0 10px; font-size:16px;">Donar por SINPE Móvil</h3>
+          <p style="margin:0; color: rgba(255,255,255,.70); line-height:1.65; font-size:14px;">
+            Puedes donar vía SINPE Móvil. Abajo mostramos números de <b>demostración</b> (placeholder) para el sitio.
+            Cuando tengas los números reales, los cambiamos en 10 segundos.
+          </p>
+
+          <div style="display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:12px; margin-top:14px;">
+            <div style="border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:14px; background: rgba(255,255,255,.05);">
+              <div style="font-weight:800; font-size:13px; color: rgba(255,255,255,.92);">SINPE Móvil (DEMO) • Principal</div>
+              <div style="margin-top:6px; font-weight:800; font-size:18px; letter-spacing:.4px;">506 8888 7777</div>
+              <div style="margin-top:6px; color: rgba(255,255,255,.58); font-size:12px;">A nombre de: Sonrisas 365 (Demo)</div>
+              <button class="btn small ghost" style="margin-top:10px;" onclick="copyText('50688887777')">Copiar número</button>
+            </div>
+
+            <div style="border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:14px; background: rgba(255,255,255,.05);">
+              <div style="font-weight:800; font-size:13px; color: rgba(255,255,255,.92);">SINPE Móvil (DEMO) • Alterno</div>
+              <div style="margin-top:6px; font-weight:800; font-size:18px; letter-spacing:.4px;">506 8999 6666</div>
+              <div style="margin-top:6px; color: rgba(255,255,255,.58); font-size:12px;">A nombre de: Sonrisas 365 (Demo)</div>
+              <button class="btn small ghost" style="margin-top:10px;" onclick="copyText('50689996666')">Copiar número</button>
+            </div>
+          </div>
+
+          <p style="margin-top:12px; color: rgba(255,255,255,.55); font-size:12px;">
+            Recomendación: usa un número dedicado solo para la fundación y publica también el <b>nombre del titular</b> para evitar confusiones.
+          </p>
+        </div>
+
   </section>
 
   <footer>
@@ -539,5 +582,23 @@
       Sonrisas 365 • <a href="https://www.facebook.com/profile.php?id=61585114094717" target="_blank" rel="noopener" style="text-decoration:underline; text-underline-offset:3px;">Facebook</a>
     </div>
   </footer>
+
+  <script>
+    function copyText(value){
+      try{
+        navigator.clipboard.writeText(value);
+        alert("Número copiado: " + value);
+      }catch(e){
+        const t = document.createElement("textarea");
+        t.value = value;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand("copy");
+        document.body.removeChild(t);
+        alert("Número copiado: " + value);
+      }
+    }
+  </script>
+
 </body>
 </html>
