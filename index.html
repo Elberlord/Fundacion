@@ -4,7 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#0b1220" />
-  <title>Fundación Sonrisas | Regalando alegría</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" sizes="512x512" href="favicon-512.png" />
+  <meta property="og:title" content="Fundación Sonrisas" />
+  <meta property="og:description" content="Donaciones y actividades solidarias. Regalos de Navidad 2024 y apoyo a comunidades e iglesias." />
+  <meta property="og:image" content="favicon-512.png" />
+<title>Fundación Sonrisas | Regalando alegría</title>
   <meta name="description" content="Conectamos padrinos con niños que necesitan una razón para sonreír. Compartimos con distintas iglesias y entregamos regalos de Navidad (2024)." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -93,6 +98,15 @@
         radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.9), transparent 60%),
         linear-gradient(135deg, rgba(106,228,255,.85), rgba(124,92,255,.75));
       box-shadow:0 14px 40px rgba(0,0,0,.35);
+    }
+
+    .logoImg{
+      width:44px; height:44px;
+      border-radius:50%;
+      object-fit:cover;
+      box-shadow:0 14px 40px rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
     }
     nav ul{list-style:none; margin:0; padding:0; display:flex; gap:.4rem; align-items:center}
     nav a{
@@ -386,7 +400,7 @@
     <div class="container">
       <div class="nav">
         <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
+          <img class="logoImg" src="fundacion-sonrisas-logo.png" alt="Fundación Sonrisas" width="44" height="44" loading="eager" />
           <div>
             <div style="font-size:1.02rem">Fundación <span style="color:var(--brand)">Sonrisas</span></div>
             <div class="small" style="color:var(--muted); font-weight:600">Regalando alegría, con orden y corazón</div>
