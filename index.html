@@ -1,348 +1,665 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fundación Sonrisas - Regalando Alegría a Niños</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#0b1220" name="theme-color"/>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<link href="favicon-512.png" rel="apple-touch-icon" sizes="512x512"/>
+<meta content="Fundación Sonrisas" property="og:title"/>
+<meta content="Donaciones y actividades solidarias. Regalos de Navidad 2024 y apoyo a comunidades e iglesias." property="og:description"/>
+<meta content="favicon-512.png" property="og:image"/>
+<title>Fundación Sonrisas | Regalando alegría</title>
+<meta content="Conectamos padrinos con niños que necesitan una razón para sonreír. Compartimos con distintas iglesias y entregamos regalos de Navidad (2024)." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root{
+      --bg:#0b1220;
+      --surface:#0f1a2e;
+      --surface2:#12203a;
+      --text:#e9eefc;
+      --muted:#b9c2dd;
+      --brand:#6ae4ff;
+      --brand2:#7c5cff;
+      --ring:rgba(106,228,255,.25);
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1100px;
+    }
 
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon-512.png">
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(1100px 500px at 20% -10%, rgba(124,92,255,.25), transparent 60%),
+        radial-gradient(900px 420px at 90% 10%, rgba(106,228,255,.20), transparent 55%),
+        radial-gradient(800px 520px at 50% 110%, rgba(106,228,255,.10), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
 
-    <style>
+    a{color:inherit; text-decoration:none}
+    .container{width:min(92vw,var(--max)); margin:0 auto}
+    .btn{
+      display:inline-flex; align-items:center; gap:.55rem;
+      border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(135deg, rgba(106,228,255,.16), rgba(124,92,255,.12));
+      color:var(--text);
+      padding:.85rem 1.1rem;
+      border-radius:999px;
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+      cursor:pointer;
+      font-weight:600;
+      transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+    .btn:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.22); box-shadow:0 14px 40px rgba(0,0,0,.35)}
+    .btn:active{transform:translateY(0)}
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(106,228,255,.26), rgba(124,92,255,.22));
+      border-color:rgba(106,228,255,.28);
+      box-shadow:0 18px 60px rgba(106,228,255,.10);
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:.45rem;
+      padding:.35rem .7rem;
+      border-radius:999px;
+      font-size:.85rem;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+    }
 
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.55);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:.9rem 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:.8rem;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:12px;
+      background:
+        radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.9), transparent 60%),
+        linear-gradient(135deg, rgba(106,228,255,.85), rgba(124,92,255,.75));
+      box-shadow:0 14px 40px rgba(0,0,0,.35);
+    }
 
-        /* Reset y estilos base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        .header {
-            background: radial-gradient(1200px 500px at 50% 0%, rgba(102,126,234,0.35) 0%, rgba(11,18,32,1) 60%);
-            color: white;
-            padding: 1.25rem 0;
-            text-align: center;
-        }
-        
-        .logo {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .slogan {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        
-        /* Marca */
-        .brand{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.9rem;
-            padding: 0 1.25rem;
-            flex-wrap: wrap;
-        }
-        .brand-logo{
-            width: 56px;
-            height: 56px;
-            object-fit: contain;
-            border-radius: 14px;
-            background: rgba(255,255,255,0.10);
-            border: 1px solid rgba(255,255,255,0.18);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-        }
-        .brand-text{
-            text-align: left;
-            line-height: 1.15;
-        }
-        .brand-name{
-            font-size: 1.25rem;
-            font-weight: 800;
-            letter-spacing: 0.2px;
-        }
-        .brand-tagline{
-            font-size: 0.95rem;
-            opacity: 0.88;
-        }
+    .logoImg{
+      width:44px; height:44px;
+      border-radius:50%;
+      object-fit:cover;
+      box-shadow:0 14px 40px rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+    }
+    nav ul{list-style:none; margin:0; padding:0; display:flex; gap:.4rem; align-items:center}
+    nav a{
+      display:inline-flex; padding:.55rem .8rem;
+      border-radius:999px;
+      color:var(--muted);
+      font-weight:600;
+      border:1px solid transparent;
+      transition:background .15s ease, color .15s ease, border-color .15s ease;
+    }
+    nav a:hover{background:rgba(255,255,255,.06); color:var(--text); border-color:rgba(255,255,255,.08)}
 
-        .hero-badge{
-            display: inline-block;
-            padding: 0.45rem 0.8rem;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.18);
-            backdrop-filter: blur(6px);
-            font-size: 0.95rem;
-            margin-bottom: 1.25rem;
-        }
+    .menuBtn{display:none}
+    @media (max-width: 820px){
+      nav ul{display:none}
+      .menuBtn{display:inline-flex}
+    }
 
-        /* Navegación */
-        .nav {
-            background: #fff;
-            padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #667eea;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background-image:
-                linear-gradient(180deg, rgba(11, 18, 32, 0.70) 0%, rgba(11, 18, 32, 0.35) 55%, rgba(11, 18, 32, 0.70) 100%),
-                url('fundacion-sonrisas-web-hero.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 72vh;
-            min-height: 520px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
+    /* Mobile menu */
+    .mobileMenu{
+      display:none;
+      border-top:1px solid rgba(255,255,255,.06);
+      padding:.6rem 0 1rem;
+    }
+    .mobileMenu.open{display:block}
+    .mobileMenu a{
+      display:flex; justify-content:space-between; align-items:center;
+      padding:.75rem .9rem;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.04);
+      margin:.45rem 0;
+      color:var(--text);
+      font-weight:650;
+    }
+    .mobileMenu a span{color:var(--muted); font-weight:600}
 
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-button {
-            padding: 12px 30px;
-            background: #ff6b6b;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 1rem;
-            font-size: 1.1rem;
-            transition: background 0.3s;
-        
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .cta-button:hover {
-            background: #ff5252;
-        }
-        
-        /* Secciones */
-        .section {
-            padding: 4rem 0;
-        }
-        
-        .section-dark {
-            background: #fff;
-        }
-        
-        .section-light {
-            background: #f8f9fa;
-        }
-        
-        .section-cta {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-        }
-        
-        /* Stats */
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 2rem;
-            text-align: center;
-        }
-        
-        .stat-item h3 {
-            font-size: 2.5rem;
-            color: #667eea;
-        }
-        
-        /* Galería */
-        .video-placeholder {
-            background: #ddd;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 2rem;
-            border-radius: 10px;
-        }
-        
-        /* Footer */
-        .footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            
-            .stats {
-                flex-direction: column;
-                gap: 2rem;
-            }
-        }
-    
-    
-    </style>
+    /* Hero */
+    .hero{
+      padding:4.2rem 0 2.8rem;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:2rem;
+      align-items:stretch;
+    }
+    .heroCard{
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:calc(var(--radius) + 6px);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .heroCard::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:radial-gradient(600px 220px at 20% 20%, rgba(106,228,255,.20), transparent 65%),
+                 radial-gradient(520px 240px at 80% 15%, rgba(124,92,255,.22), transparent 60%);
+      pointer-events:none;
+    }
+    .heroInner{position:relative; padding:2rem 2rem 2.2rem}
+    h1{font-size:clamp(2rem, 4vw, 3.1rem); line-height:1.05; margin:.65rem 0 1rem; letter-spacing:-.6px}
+    .lead{color:var(--muted); font-size:1.05rem; max-width:60ch; margin:0 0 1.35rem}
+    .heroActions{display:flex; gap:.75rem; flex-wrap:wrap}
+    .heroSide{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:calc(var(--radius) + 6px);
+      box-shadow:var(--shadow);
+      padding:1.3rem;
+      display:flex; flex-direction:column; gap:1rem;
+    }
+    .sideItem{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:1rem;
+    }
+    .sideItem h3{margin:.2rem 0 .3rem; font-size:1rem}
+    .sideItem p{margin:0; color:var(--muted); font-size:.95rem}
+    .badge{
+      display:inline-flex; align-items:center; gap:.5rem;
+      color:rgba(233,238,252,.92);
+      font-weight:700;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background:linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow:0 0 0 6px var(--ring);
+    }
+
+    @media (max-width: 980px){
+      .heroGrid{grid-template-columns:1fr}
+      .hero{padding:3.4rem 0 2.2rem}
+    }
+
+    /* Sections */
+    section{padding:3.2rem 0}
+    .sectionHead{margin-bottom:1.4rem}
+    .kicker{color:var(--brand); font-weight:750; letter-spacing:.2px}
+    h2{margin:.35rem 0 .6rem; font-size:clamp(1.45rem, 2.4vw, 2rem); letter-spacing:-.3px}
+    .sub{margin:0; color:var(--muted)}
+
+    /* Mission + stats */
+    .grid2{display:grid; grid-template-columns: 1.1fr .9fr; gap:1.4rem; align-items:start}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:var(--radius);
+      box-shadow:0 14px 50px rgba(0,0,0,.25);
+    }
+    .cardPad{padding:1.35rem}
+    .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:.9rem}
+    .stat{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:1rem;
+      min-height:92px;
+    }
+    .stat strong{display:block; font-size:1.3rem; letter-spacing:-.2px}
+    .stat span{color:var(--muted); font-weight:600; font-size:.92rem}
+
+    .list{
+      display:grid; gap:.8rem;
+    }
+    .listItem{
+      display:flex; gap:.75rem; align-items:flex-start;
+      padding:1rem;
+      border-radius:16px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .icon{
+      width:38px; height:38px; border-radius:12px;
+      background:linear-gradient(135deg, rgba(106,228,255,.22), rgba(124,92,255,.18));
+      border:1px solid rgba(255,255,255,.10);
+      display:grid; place-items:center;
+      flex:0 0 auto;
+    }
+    .listItem h4{margin:0 0 .2rem; font-size:1rem}
+    .listItem p{margin:0; color:var(--muted); font-size:.95rem}
+
+    @media (max-width: 920px){
+      .grid2{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr;}
+    }
+
+    /* Gallery videos */
+    .videoGrid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:1.1rem;
+      margin-top:1.2rem;
+    }
+    .videoCard{
+      position:relative;
+      overflow:hidden;
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow:0 18px 60px rgba(0,0,0,.28);
+      padding:1.2rem;
+      display:flex;
+      gap:1.2rem;
+      align-items:center;
+      cursor:pointer;
+      transition:transform .15s ease, border-color .15s ease;
+    }
+    .videoCard:hover{transform:translateY(-2px); border-color:rgba(106,228,255,.28)}
+    .circlePreview{
+      width:110px; height:110px; border-radius:999px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow:0 16px 45px rgba(0,0,0,.35);
+      background-size:cover;
+      background-position:center;
+      position:relative;
+      flex:0 0 auto;
+    }
+    .circlePreview::after{
+      content:"▶";
+      position:absolute;
+      inset:auto;
+      left:50%; top:50%;
+      transform:translate(-50%,-50%);
+      width:40px; height:40px;
+      border-radius:999px;
+      display:grid; place-items:center;
+      background:rgba(11,18,32,.55);
+      border:1px solid rgba(255,255,255,.22);
+      backdrop-filter: blur(6px);
+      font-size:16px;
+      padding-left:2px;
+    }
+    .videoMeta h3{margin:0 0 .25rem; font-size:1.05rem}
+    .videoMeta p{margin:0; color:var(--muted); font-size:.95rem}
+    .videoMeta .tagRow{margin-top:.55rem; display:flex; gap:.5rem; flex-wrap:wrap}
+
+    @media (max-width: 720px){
+      .videoGrid{grid-template-columns:1fr}
+      .videoCard{align-items:flex-start}
+    }
+
+    /* CTA block */
+    .ctaBlock{
+      padding:2rem;
+      border-radius:calc(var(--radius) + 8px);
+      border:1px solid rgba(106,228,255,.18);
+      background:
+        radial-gradient(540px 220px at 20% 20%, rgba(106,228,255,.20), transparent 60%),
+        radial-gradient(560px 220px at 80% 30%, rgba(124,92,255,.20), transparent 60%),
+        rgba(255,255,255,.03);
+      box-shadow:0 20px 70px rgba(0,0,0,.28);
+      display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;
+    }
+    .ctaBlock p{margin:0; color:var(--muted)}
+
+    /* Footer */
+    footer{
+      border-top:1px solid rgba(255,255,255,.06);
+      padding:2rem 0 3rem;
+      color:var(--muted);
+    }
+    .footerGrid{display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; align-items:flex-start}
+    .small{font-size:.92rem}
+
+    /* Modal */
+    .modal{
+      position:fixed; inset:0; z-index:200;
+      display:none; align-items:center; justify-content:center;
+      background:rgba(0,0,0,.65);
+      padding:1.2rem;
+    }
+    .modal.open{display:flex}
+    .modalPanel{
+      width:min(980px, 96vw);
+      background:rgba(15,26,46,.92);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:22px;
+      box-shadow:0 30px 90px rgba(0,0,0,.55);
+      overflow:hidden;
+      position:relative;
+    }
+    .modalTop{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:.9rem 1rem;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .modalTop .title{font-weight:750}
+    .closeBtn{
+      appearance:none; border:0; cursor:pointer;
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:12px;
+      padding:.45rem .65rem;
+      font-weight:800;
+    }
+    .videoFrame{
+      position:relative;
+      width:100%;
+      aspect-ratio: 16/9;
+      background:#000;
+    }
+    .videoFrame iframe{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      border:0;
+    }
+
+    /* Reveal on scroll */
+    .reveal{opacity:0; transform:translateY(10px); transition:opacity .45s ease, transform .45s ease}
+    .reveal.visible{opacity:1; transform:none}
+
+    /* Skip link */
+    .skip{
+      position:absolute; left:-999px; top:10px;
+      background:#fff; color:#000; padding:.6rem .9rem; border-radius:10px;
+    }
+    .skip:focus{left:10px; z-index:999}
+  
+    .videoActions{ margin-top:.9rem; }
+    .videoActions .btn{ padding:.45rem .75rem; border-radius:999px; font-weight:800; font-size:.95rem; }
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="brand">
-            <img class="brand-logo" src="fundacion-sonrisas-logo.png" alt="Logo de Fundación Sonrisas">
-            <div class="brand-text">
-                <div class="brand-name">Fundación Sonrisas</div>
-                <div class="brand-tagline">Regalando sonrisas, construyendo futuros</div>
-            </div>
-        </div>
-    </header>
+<a class="skip" href="#inicio">Saltar al contenido</a>
+<header>
+<div class="container">
+<div class="nav">
+<div class="brand">
+<img alt="Fundación Sonrisas" class="logoImg" height="44" loading="eager" src="fundacion-sonrisas-logo.png" width="44"/>
+<div>
+<div style="font-size:1.02rem">Fundación <span style="color:var(--brand)">Sonrisas</span></div>
+<div class="small" style="color:var(--muted); font-weight:600">Regalando alegría, con orden y corazón</div>
+</div>
+</div>
+<nav aria-label="Navegación principal">
+<ul>
+<li><a href="#inicio">Inicio</a></li>
+<li><a href="#mision">Misión</a></li>
+<li><a href="#galeria">Galería</a></li>
+<li><a href="#donar">Sumarte</a></li>
+</ul>
+</nav>
+<button aria-controls="mobileMenu" aria-expanded="false" class="btn menuBtn" id="menuBtn">Menú</button>
+</div>
+<div class="mobileMenu" id="mobileMenu">
+<a href="#inicio">Inicio <span>↘</span></a>
+<a href="#mision">Misión <span>↘</span></a>
+<a href="#galeria">Galería <span>↘</span></a>
+<a href="#donar">Sumarte <span>↘</span></a>
+</div>
+</div>
+</header>
+<main>
+<!-- INICIO -->
+<section class="hero" id="inicio">
+<div class="container">
+<div class="heroGrid">
+<div class="heroCard reveal">
+<div class="heroInner">
+<div class="chip"><span aria-hidden="true" class="dot"></span> Navidad 2024 · Iglesias + regalos</div>
+<h1>350 sonrisas, un solo corazón.</h1>
+<p class="lead">
+                Conectamos padrinos con niños que necesitan una razón para sonreír. Compartimos con diferentes iglesias y
+                entregamos regalos de Navidad para crear recuerdos que se quedan a vivir. 🎁
+              </p>
+<div class="heroActions">
+<a class="btn primary" href="#galeria">Ver videos 2024</a>
+<a class="btn" href="#donar">Quiero ayudar</a>
+</div>
+</div>
+</div>
+<aside aria-label="Resumen rápido" class="heroSide reveal">
+<div class="sideItem">
+<div class="badge"><span aria-hidden="true" class="dot"></span> Impacto</div>
+<h3>Niños beneficiados</h3>
+<p><strong style="color:var(--text); font-size:1.15rem">350+</strong> menores de 12 años (meta: más cada año).</p>
+</div>
+<div class="sideItem">
+<div class="badge"><span aria-hidden="true" class="dot"></span> Estilo de trabajo</div>
+<h3>Simple, transparente</h3>
+<p>Acciones claras, evidencia visual y seguimiento.</p>
+</div>
+<div class="sideItem">
+<div class="badge"><span aria-hidden="true" class="dot"></span> Comunidad</div>
+<h3>Con iglesias aliadas</h3>
+<p>Unimos manos para que el amor sea logística, no solo intención.</p>
+</div>
+</aside>
+</div>
+</div>
+</section>
+<!-- MISIÓN -->
+<section id="mision">
+<div class="container">
+<div class="sectionHead reveal">
+<div class="kicker">Nuestra misión</div>
+<h2>Ayuda real, con impacto medible.</h2>
+<p class="sub">Un puente entre padrinos y niños. Sin drama. Sin humo. Solo acción.</p>
+</div>
+<div class="grid2">
+<div class="card reveal">
+<div class="cardPad">
+<p style="margin:0 0 1.1rem; color:var(--muted)">
+                Conectamos padrinos con niños que necesitan una razón para sonreír.
+                Actualmente beneficiamos a <strong style="color:var(--text)">350 niños menores de 12 años</strong>,
+                y nuestra visión es expandirnos para llegar a muchos más.
+              </p>
+<div class="stats">
+<div class="stat">
+<strong>350+</strong>
+<span>Niños beneficiados</span>
+</div>
+<div class="stat">
+<strong>2</strong>
+<span>Años de trayectoria</span>
+</div>
+<div class="stat">
+<strong>100%</strong>
+<span>Compromiso social</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card reveal">
+<div class="cardPad">
+<div class="list">
+<div class="listItem">
+<div aria-hidden="true" class="icon">🤝</div>
+<div>
+<h4>Alianzas con propósito</h4>
+<p>Trabajamos con iglesias y comunidad para que cada entrega tenga orden y alcance.</p>
+</div>
+</div>
+<div class="listItem">
+<div aria-hidden="true" class="icon">🧾</div>
+<div>
+<h4>Transparencia</h4>
+<p>Mostramos evidencias, resultados y momentos, sin maquillaje.</p>
+</div>
+</div>
+<div class="listItem">
+<div aria-hidden="true" class="icon">🎄</div>
+<div>
+<h4>Navidad con sentido</h4>
+<p>Regalos, sí. Pero también dignidad, alegría y pertenencia.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- GALERÍA -->
+<section id="galeria">
+<div class="container">
+<div class="sectionHead reveal">
+<div class="kicker">Galería</div>
+<h2>Navidad 2024: momentos en video</h2>
+<p class="sub">Compartiendo con diferentes iglesias y entregando regalos. Toca un video para verlo.</p>
+</div>
+<div class="videoGrid">
+<article class="videoCard reveal" data-drive="1aY94cfLokxp_1nMe7syqsgk_WvjkWg11" data-title="Navidad 2024 · Entrega de regalos (Video 1)" role="button" tabindex="0">
+<div aria-hidden="true" class="circlePreview" style="background-image:url('https://drive.google.com/thumbnail?id=1aY94cfLokxp_1nMe7syqsgk_WvjkWg11&amp;sz=w600')"></div>
+<div class="videoMeta">
+<h3>Entrega de regalos (Video 1)</h3>
+<p>Un momento real, con comunidad y alegría. 🎁</p>
+<div class="tagRow">
+<span class="chip">2024</span>
+<span class="chip">Iglesias</span>
+<span class="chip">Navidad</span>
+</div>
+<div class="videoActions"><a class="btn" data-open-drive="1" href="https://drive.google.com/file/d/1aY94cfLokxp_1nMe7syqsgk_WvjkWg11/view?usp=sharing" rel="noopener noreferrer" target="_blank">Abrir en Drive</a></div></div>
+</article>
+<article class="videoCard reveal" data-drive="10nYPj7oULIWBDEuPBH8hG-zwtTv81qLE" data-title="Navidad 2024 · Entrega de regalos (Video 2)" role="button" tabindex="0">
+<div aria-hidden="true" class="circlePreview" style="background-image:url('https://drive.google.com/thumbnail?id=10nYPj7oULIWBDEuPBH8hG-zwtTv81qLE&amp;sz=w600')"></div>
+<div class="videoMeta">
+<h3>Entrega de regalos (Video 2)</h3>
+<p>Más sonrisas, más manos unidas. 💙</p>
+<div class="tagRow">
+<span class="chip">2024</span>
+<span class="chip">Comunidad</span>
+<span class="chip">Solidaridad</span>
+</div>
+<div class="videoActions"><a class="btn" data-open-drive="1" href="https://drive.google.com/file/d/10nYPj7oULIWBDEuPBH8hG-zwtTv81qLE/view?usp=sharing" rel="noopener noreferrer" target="_blank">Abrir en Drive</a></div></div>
+</article>
+</div>
+</div>
+</section>
+<!-- DONAR / SUMARTE -->
+<section id="donar">
+<div class="container">
+<div class="ctaBlock reveal">
+<div>
+<div class="kicker">Sumarte</div>
+<h2 style="margin:.25rem 0 .45rem">¿Quieres ser parte del cambio?</h2>
+<p>Conviértete en padrino y regala una sonrisa esta Navidad. (Aquí puedes enlazar tu formulario o WhatsApp.)</p>
+</div>
+<div style="display:flex; gap:.7rem; flex-wrap:wrap">
+<button class="btn primary" id="ctaPadrino">Quiero ser padrino</button>
+<a class="btn" href="#galeria">Ver evidencia</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="container">
+<div class="footerGrid">
+<div>
+<div class="brand" style="margin-bottom:.35rem">
+<div aria-hidden="true" class="logo" style="width:34px;height:34px;border-radius:12px"></div>
+<div style="font-weight:850">Fundación Sonrisas</div>
+</div>
+<div class="small">Hecho para mostrar impacto con una presentación profesional.</div>
+</div>
+<div class="small">
+<div style="font-weight:750; color:var(--text); margin-bottom:.4rem">Contacto</div>
+<div>Correo: <span style="opacity:.85">tu-correo@ejemplo.com</span></div>
+<div>WhatsApp: <span style="opacity:.85">(+506) 0000-0000</span></div>
+<div style="margin-top:.6rem; opacity:.75">Actualiza estos datos con los reales.</div>
+</div>
+</div>
+<div class="small" style="margin-top:1.2rem; opacity:.7">© 2025 Fundación Sonrisas</div>
+</div>
+</footer>
+<!-- Modal -->
 
-    <!-- Navegación -->
-    <nav class="nav">
-        <ul class="nav-links">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#mision">Nuestra Misión</a></li>
-            <li><a href="#galeria">Galería</a></li>
-            <li><a href="#donar">Cómo Ayudar</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
+<script>
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        const open = mobileMenu.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', String(open));
+      });
+    }
+    // Close menu after click
+    document.querySelectorAll('#mobileMenu a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        menuBtn?.setAttribute('aria-expanded', 'false');
+      });
+    });
 
-    <!-- Hero Section -->
-    <section class="hero" id="inicio" aria-label="Banner principal Fundación Sonrisas">
-        <div class="hero-content">
-            <div class="hero-badge">Navidad 2024 • Entrega de regalos</div>
-            <h1>350 Sonrisas, Un Solo Corazón</h1>
-            <p>Compartimos con diferentes iglesias y entregamos regalos a niños y familias. Tu apoyo convierte donaciones en momentos que se quedan para siempre.</p>
-            <a class="cta-button" href="#galeria">Ver evidencia</a>
-        </div>
-    </section>
+    // Smooth scroll (native-ish)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const id = this.getAttribute('href');
+        if (!id || id === '#') return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
 
-    <!-- Misión -->
-    <section class="section section-dark" id="mision">
-        <div class="container">
-            <h2>Nuestra Misión</h2>
-            <p>Conectamos padrinos con niños que necesitan una razón para sonreír. 
-               Actualmente beneficiamos a <strong>350 niños menores de 12 años</strong>, 
-               pero nuestra visión es expandirnos para llegar a muchos más.</p>
-            
-            <div class="stats">
-                <div class="stat-item">
-                    <h3>350+</h3>
-                    <p>Niños Beneficiados</p>
-                </div>
-                <div class="stat-item">
-                    <h3>2</h3>
-                    <p>Años de Trayectoria</p>
-                </div>
-                <div class="stat-item">
-                    <h3>100%</h3>
-                    <p>Compromiso Social</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    // CTA
+    document.getElementById('ctaPadrino')?.addEventListener('click', () => {
+      alert('Aquí puedes conectar tu formulario de padrinos o tu enlace de WhatsApp.');
+    });
 
-    <!-- Galería -->
-    <section class="section section-light" id="galeria">
-        <div class="container">
-            <h2>Nuestros Momentos</h2>
-            <p>Estos son algunos de los momentos especiales que hemos compartido</p>
-            
-            <!-- Espacio para tus videos -->
-            <div class="video-gallery">
-                <div class="video-placeholder">
-                    <p>🎥 Aquí irán tus videos del año pasado</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    <!-- CTA -->
-    <section class="section section-cta" id="donar">
-        <div class="container">
-            <h2>¿Quieres Ser Parte del Cambio?</h2>
-            <p>Conviértete en padrino y regala una sonrisa esta navidad</p>
-            <button class="cta-button">Quiero Ser Padrino</button>
-        </div>
-    </section>
+    // Videos (abrir en Drive)
+    function openVideoInDrive(id) {
+      const url = `https://drive.google.com/file/d/${id}/view?usp=sharing`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
 
-    <!-- Footer -->
-    <footer class="footer" id="contacto">
-        <div class="container">
-            <p>📧 contacto@fundacionsonrisas.org | 📞 +57 300 123 4567</p>
-            <p>&copy; 2024 Fundación Sonrisas. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    document.querySelectorAll('[data-drive]').forEach(card => {
+      const handler = () => openVideoInDrive(card.dataset.drive);
+      card.addEventListener('click', handler);
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handler();
+        }
+      });
+    });
 
-    <script>
-        // JavaScript básico para interactividad
-        document.addEventListener('DOMContentLoaded', function() {
-            // Smooth scroll para navegación
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-            
-            // Animación para los botones CTA
-            const ctaButtons = document.querySelectorAll('.cta-button');
-            ctaButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    alert('¡Gracias por tu interés! Pronto tendremos el formulario de padrinos activo.');
-                });
-            });
-        });
-    </script>
+  </script>
 </body>
 </html>
