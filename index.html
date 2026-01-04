@@ -412,6 +412,10 @@
         .header{
             text-align: left;
             padding: 0.9rem 0;
+            position: relative;
+            z-index: 99999;
+            overflow: visible;
+            isolation: isolate;
         }
         .header-inner{
             max-width: 1200px;
@@ -422,6 +426,8 @@
             justify-content: space-between;
             gap: 18px;
             flex-wrap: nowrap;
+        
+            overflow: visible;
         }
         .header .brand{
             display: flex;
@@ -480,7 +486,7 @@
             box-shadow: 0 18px 40px rgba(0,0,0,0.35);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            z-index: 9999;
+            z-index: 100000;
         }
         .header .nav.open .nav-links a{
             display: block;
