@@ -454,13 +454,13 @@
             width: 44px;
             height: 44px;
             border-radius: 12px;
-            background: rgba(255,255,255,0.08);
+            background: transparent;
             border: 1px solid rgba(255,255,255,0.14);
             color: rgba(245,248,255,0.92);
             cursor: pointer;
             user-select: none;
         }
-        .header .nav-toggle:hover{ background: rgba(255,255,255,0.12); }
+        .header .nav-toggle:hover{ background: transparent; }
         .header .nav-toggle:active{ transform: translateY(1px); }
         .header .nav-toggle-icon{ font-size: 20px; line-height: 1; }
 
@@ -472,22 +472,27 @@
             padding: 0;
         }
         .header .nav.open .nav-links{
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            position: absolute;
-            top: calc(100% + 10px);
-            right: 0;
-            min-width: 240px;
-            padding: 14px;
-            border-radius: 16px;
-            background: rgba(5,8,22,0.92);
-            border: 1px solid rgba(255,255,255,0.12);
-            box-shadow: 0 18px 40px rgba(0,0,0,0.35);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 100000;
-        }
+  display:flex;
+  flex-direction:column;
+  gap: 0.35rem;
+
+  /* FIX: menú encima del hero (sin quedar “detrás”) */
+  position: fixed;
+  top: var(--menu-top, 76px);
+  right: 18px;
+
+  width: min(360px, calc(100vw - 36px));
+  max-height: calc(100vh - var(--menu-top, 76px) - 16px);
+  overflow: auto;
+
+  background: rgba(8, 18, 40, 0.92);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 0.75rem;
+  backdrop-filter: blur(10px);
+
+  z-index: 1000000;
+}
         .header .nav.open .nav-links a{
             display: block;
             padding: 10px 12px;
@@ -529,7 +534,8 @@
             <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
                 <span class="nav-toggle-icon" aria-hidden="true">☰</span>
             </button>
-            <ul class="nav-links" id="navMenu">
+      <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+                  <ul class="nav-links" id="navMenu">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#mision">Nuestra Misión</a></li>
             <li><a href="#galeria">Galería</a></li>
@@ -734,9 +740,20 @@
 
         const btn = nav.querySelector('.nav-toggle');
         const menu = nav.querySelector('#navMenu');
-        if(!btn || !menu) return;
+        
+        const overlay = nav.querySelector('#navOverlay');
+if(!btn || !menu) return;
 
         function setOpen(isOpen){
+            if(isOpen){
+                const header = document.querySelector('.header');
+                if(header){
+                    const rect = header.getBoundingClientRect();
+                    const top = Math.max(rect.bottom + 10, 60);
+                    document.documentElement.style.setProperty('--menu-top', `${top}px`);
+                }
+            }
+
             nav.classList.toggle('open', isOpen);
             btn.setAttribute('aria-expanded', String(isOpen));
             const icon = btn.querySelector('.nav-toggle-icon');
@@ -746,7 +763,12 @@
 
         btn.addEventListener('click', (e)=>{
             e.stopPropagation();
-            setOpen(!nav.classList.contains('open'));
+            
+
+        if(overlay){
+            overlay.addEventListener('click', () => setOpen(false));
+        }
+setOpen(!nav.classList.contains('open'));
         });
 
         menu.addEventListener('click', (e)=>{
