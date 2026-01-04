@@ -12,6 +12,7 @@
 
 
 
+
         /* Reset y estilos base */
         * {
             margin: 0;
@@ -312,9 +313,40 @@
             .cn-slide{ flex-basis: 60%; }
         }
 
+    
+
+        /* Galería 2024: carrusel dentro del placeholder (toca SOLO esta zona) */
+
+        /* Galería 2024: videos (Drive) - NO carrusel */
+        .video-placeholder.has-videos{
+            height: auto;
+            display: block;
+            padding: 14px;
+            background: #ddd;
+        }
+        .galeria-videos{
+            display: grid;
+            gap: 14px;
+        }
+        .galeria-video{
+            border-radius: 10px;
+            overflow: hidden;
+            background: #000;
+        }
+        .galeria-iframe{
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: 0;
+            display: block;
+        }
+        @media (min-width: 900px){
+            .galeria-videos{
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
         /* =========================================================
            THEME OVERRIDE: Azul oscuro con brillo plateado (uniforme)
-           (Añadido al final para NO romper tu layout existente)
         ========================================================== */
         :root{
             --bg-deep: #050816;
@@ -335,16 +367,16 @@
                 radial-gradient(720px 520px at 55% 96%, rgba(255,255,255,0.10), transparent 66%),
                 linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 48%, var(--bg-deep) 100%) !important;
             background-attachment: fixed;
-            color: var(--text);
+            color: var(--text) !important;
         }
 
-        /* Mantener TODO el sitio con el mismo fondo */
-        .section, .section-light, .section-dark{
+        /* Unificar fondo en TODO (no tocamos el hero si ya tiene imagen) */
+        .section, .section-light, .section-dark, .section-cta{
             background: transparent !important;
         }
 
-        /* Panel sutil para legibilidad sin cambiar estructura */
-        .section .container{
+        /* Contenedor tipo "glass" para legibilidad (sin cambiar layout) */
+        .section .container, .section-cta .container{
             background: var(--panel);
             border: 1px solid var(--panel-border);
             border-radius: 18px;
@@ -353,13 +385,13 @@
             -webkit-backdrop-filter: blur(10px);
         }
 
-        h1, h2, h3{ color: var(--text); }
-        p, li{ color: var(--muted); }
+        h1, h2, h3{ color: var(--text) !important; }
+        p, li{ color: var(--muted) !important; }
 
-        /* Barra de navegación (antes era blanca) */
+        /* Barra de navegación */
         .nav{
             background: rgba(5,8,22,0.72) !important;
-            border-bottom: 1px solid rgba(255,255,255,0.10);
+            border-bottom: 1px solid rgba(255,255,255,0.10) !important;
             box-shadow: none !important;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -371,17 +403,16 @@
             color: rgba(255,255,255,1) !important;
         }
 
-        /* Ajuste del placeholder de galería para que combine con el tema */
-        .video-placeholder{
-            background: rgba(255,255,255,0.08) !important;
-            color: rgba(245,248,255,0.80) !important;
+        /* Placeholder / área de videos */
+        .video-placeholder, .video-placeholder.has-videos{
+            background: rgba(255,255,255,0.06) !important;
+            color: rgba(245,248,255,0.86) !important;
+            border: 1px solid rgba(255,255,255,0.12) !important;
         }
 
-        /* Inputs/areas claras si existen */
-        input, textarea, select{
-            background: rgba(255,255,255,0.08);
-            color: var(--text);
-            border: 1px solid rgba(255,255,255,0.14);
+        /* Iframes de galería */
+        .galeria-video{
+            border: 1px solid rgba(255,255,255,0.10) !important;
         }
     </style>
 </head>
@@ -451,8 +482,27 @@
             
             <!-- Espacio para tus videos -->
             <div class="video-gallery">
-                <div class="video-placeholder">
-                    <p>🎥 Aquí irán tus videos del año pasado</p>
+                
+                                <div class="video-placeholder has-videos" aria-label="Galería 2024">
+                    <div class="galeria-videos">
+                        <div class="galeria-video">
+                            <iframe class="galeria-iframe"
+                                src="https://drive.google.com/file/d/10nYPj7oULIWBDEuPBH8hG-zwtTv81qLE/preview"
+                                title="Galería 2024 - Video 1"
+                                loading="lazy"
+                                allow="autoplay"
+                                allowfullscreen></iframe>
+                        </div>
+
+                        <div class="galeria-video">
+                            <iframe class="galeria-iframe"
+                                src="https://drive.google.com/file/d/1aY94cfLokxp_1nMe7syqsgk_WvjkWg11/preview"
+                                title="Galería 2024 - Video 2"
+                                loading="lazy"
+                                allow="autoplay"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -571,5 +621,7 @@
         });
     </script>
 
-</body>
+
+
+    </body>
 </html>
