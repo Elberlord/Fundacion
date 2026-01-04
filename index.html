@@ -14,8 +14,6 @@
 
 
 
-
-
         /* Reset y estilos base */
         * {
             margin: 0;
@@ -409,11 +407,11 @@
         }
 
         /* =========================================================
-           NAV LAYOUT: Logo + nombre a la izquierda, menú a la derecha
+           HEADER: marca a la izquierda + hamburguesa a la derecha
         ========================================================== */
         .header{
-            text-align: left !important;
-            padding: 0.9rem 0 !important;
+            text-align: left;
+            padding: 0.9rem 0;
         }
         .header-inner{
             max-width: 1200px;
@@ -423,91 +421,32 @@
             align-items: center;
             justify-content: space-between;
             gap: 18px;
-            flex-wrap: wrap;
-        }
-        .header .brand{
-            padding: 0 !important;
-            justify-content: flex-start !important;
             flex-wrap: nowrap;
         }
-
-        /* Nav dentro del header */
-        .header .nav{
-            background: transparent !important;
-            padding: 0 !important;
-            box-shadow: none !important;
-            border-bottom: none !important;
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
+        .header .brand{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
         }
-        .header .nav-links{
-            justify-content: flex-end !important;
-            gap: 1.35rem !important;
-            padding: 0 !important;
-            margin: 0 !important;
-            flex-wrap: wrap;
-        }
-        .header .nav-links a{
-            color: rgba(245,248,255,0.88) !important;
-        }
-        .header .nav-links a:hover{
-            color: rgba(255,255,255,1) !important;
-        }
-
-        /* En pantallas pequeñas: menú baja sin romper */
-        @media (max-width: 720px){
-            .header-inner{
-                justify-content: center;
-            }
-            .header .brand{
-                justify-content: center !important;
-            }
-            .header .nav-links{
-                justify-content: center !important;
-            }
-        }
-
-        /* =========================================================
-           NAV ALIGN FIX: fuerza menú a la derecha (desktop)
-        ========================================================== */
-        @media (min-width: 721px){
-            .header-inner{
-                flex-wrap: nowrap !important;
-            }
-            .header .brand{
-                flex: 0 0 auto !important;
-            }
-            .header .nav{
-                flex: 1 1 auto !important;
-                margin-left: auto !important;
-                display: flex !important;
-                justify-content: flex-end !important;
-            }
-            .header .nav-links{
-                width: 100% !important;
-                display: flex !important;
-                justify-content: flex-end !important;
-                align-items: center !important;
-            }
-        }
+        .header .brand-text{ min-width: 0; }
 
         /* =========================================================
            NAV HAMBURGER: menú tipo dropdown (PC + móvil)
         ========================================================== */
         .header .nav{
-            position: relative !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: flex-end !important;
-            gap: 10px !important;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-left: auto;
         }
-
         .header .nav-toggle{
-            display: inline-flex !important;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 42px;
-            height: 42px;
+            width: 44px;
+            height: 44px;
             border-radius: 12px;
             background: rgba(255,255,255,0.08);
             border: 1px solid rgba(255,255,255,0.14);
@@ -515,30 +454,25 @@
             cursor: pointer;
             user-select: none;
         }
-        .header .nav-toggle:hover{
-            background: rgba(255,255,255,0.12);
-        }
-        .header .nav-toggle:active{
-            transform: translateY(1px);
-        }
-        .header .nav-toggle-icon{
-            font-size: 20px;
-            line-height: 1;
-        }
+        .header .nav-toggle:hover{ background: rgba(255,255,255,0.12); }
+        .header .nav-toggle:active{ transform: translateY(1px); }
+        .header .nav-toggle-icon{ font-size: 20px; line-height: 1; }
 
-        /* Oculto por defecto: SOLO se muestra al abrir */
+        /* Oculto por defecto: solo visible cuando se abre */
         .header .nav-links{
-            display: none !important;
+            display: none;
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
-
         .header .nav.open .nav-links{
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 10px !important;
-            position: absolute !important;
-            top: calc(100% + 10px) !important;
-            right: 0 !important;
-            min-width: 220px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            min-width: 240px;
             padding: 14px;
             border-radius: 16px;
             background: rgba(5,8,22,0.92);
@@ -548,23 +482,24 @@
             -webkit-backdrop-filter: blur(12px);
             z-index: 9999;
         }
-
         .header .nav.open .nav-links a{
             display: block;
             padding: 10px 12px;
             border-radius: 12px;
             text-decoration: none;
-            color: rgba(245,248,255,0.88) !important;
+            color: rgba(245,248,255,0.88);
             background: rgba(255,255,255,0.04);
             border: 1px solid rgba(255,255,255,0.06);
         }
         .header .nav.open .nav-links a:hover{
             background: rgba(255,255,255,0.08);
-            color: rgba(255,255,255,1) !important;
+            color: rgba(255,255,255,1);
         }
 
-        /* En pantallas pequeñas, el dropdown ocupa casi todo el ancho */
+        /* En pantallas pequeñas: ocultar tagline para que quepa todo */
         @media (max-width: 520px){
+            .brand-tagline{ display: none; }
+            .header-inner{ padding: 0 14px; }
             .header .nav.open .nav-links{
                 right: 50%;
                 transform: translateX(50%);
@@ -581,18 +516,21 @@
             <img class="brand-logo" src="fundacion-sonrisas-logo.png" alt="Logo de Fundación Sonrisas">
             <div class="brand-text">
                 <div class="brand-name">Fundación Sonrisas</div>
-            <nav class="nav">
-        <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
-            <span class="nav-toggle-icon" aria-hidden="true">☰</span>
-        </button>
-        <ul class="nav-links">
+                <div class="brand-tagline">Regalando sonrisas, construyendo futuros</div>
+            </div>
+        </div>
+            <nav class="nav" aria-label="Menú principal">
+            <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+                <span class="nav-toggle-icon" aria-hidden="true">☰</span>
+            </button>
+            <ul class="nav-links" id="navMenu">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#mision">Nuestra Misión</a></li>
             <li><a href="#galeria">Galería</a></li>
             <li><a href="#donar">Cómo Ayudar</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
-    </nav>
+        </nav>
         </div>
     </header>
 
@@ -785,11 +723,11 @@
     <script>
     // NAV HAMBURGER SCRIPT
     (function(){
-        const nav = document.querySelector('.header .nav') || document.querySelector('.nav');
+        const nav = document.querySelector('.header .nav');
         if(!nav) return;
 
         const btn = nav.querySelector('.nav-toggle');
-        const menu = nav.querySelector('#navMenu') || nav.querySelector('.nav-links');
+        const menu = nav.querySelector('#navMenu');
         if(!btn || !menu) return;
 
         function setOpen(isOpen){
@@ -802,27 +740,22 @@
 
         btn.addEventListener('click', (e)=>{
             e.stopPropagation();
-            const isOpen = nav.classList.contains('open');
-            setOpen(!isOpen);
+            setOpen(!nav.classList.contains('open'));
         });
 
-        // Close when clicking a link
         menu.addEventListener('click', (e)=>{
             const a = e.target.closest('a');
             if(a) setOpen(false);
         });
 
-        // Close on outside click
         document.addEventListener('click', (e)=>{
             if(!nav.contains(e.target)) setOpen(false);
         });
 
-        // Close on ESC
         document.addEventListener('keydown', (e)=>{
             if(e.key === 'Escape') setOpen(false);
         });
 
-        // Start closed
         setOpen(false);
     })();
     </script>
