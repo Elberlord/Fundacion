@@ -13,6 +13,7 @@
 
 
 
+
         /* Reset y estilos base */
         * {
             margin: 0;
@@ -404,22 +405,76 @@
         .galeria-video{
             border: 1px solid rgba(255,255,255,0.10) !important;
         }
+
+        /* =========================================================
+           NAV LAYOUT: Logo + nombre a la izquierda, menú a la derecha
+        ========================================================== */
+        .header{
+            text-align: left !important;
+            padding: 0.9rem 0 !important;
+        }
+        .header-inner{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        .header .brand{
+            padding: 0 !important;
+            justify-content: flex-start !important;
+            flex-wrap: nowrap;
+        }
+
+        /* Nav dentro del header */
+        .header .nav{
+            background: transparent !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            border-bottom: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+        .header .nav-links{
+            justify-content: flex-end !important;
+            gap: 1.35rem !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            flex-wrap: wrap;
+        }
+        .header .nav-links a{
+            color: rgba(245,248,255,0.88) !important;
+        }
+        .header .nav-links a:hover{
+            color: rgba(255,255,255,1) !important;
+        }
+
+        /* En pantallas pequeñas: menú baja sin romper */
+        @media (max-width: 720px){
+            .header-inner{
+                justify-content: center;
+            }
+            .header .brand{
+                justify-content: center !important;
+            }
+            .header .nav-links{
+                justify-content: center !important;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="brand">
+        <div class="header-inner">
+            <div class="brand">
             <img class="brand-logo" src="fundacion-sonrisas-logo.png" alt="Logo de Fundación Sonrisas">
             <div class="brand-text">
                 <div class="brand-name">Fundación Sonrisas</div>
-                <div class="brand-tagline">Regalando sonrisas, construyendo futuros</div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Navegación -->
-    <nav class="nav">
+            <nav class="nav">
         <ul class="nav-links">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#mision">Nuestra Misión</a></li>
@@ -428,6 +483,11 @@
             <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
+        </div>
+    </header>
+
+    <!-- Navegación -->
+    
 
     <!-- Hero Section -->
     <section class="hero" id="inicio" aria-label="Banner principal Fundación Sonrisas">
