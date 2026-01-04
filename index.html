@@ -517,7 +517,31 @@
                 min-width: min(92vw, 320px);
             }
         }
-    </style>
+    
+/* --- NAV TOGGLE POLISH (blend + glow) --- */
+.header .nav-toggle{
+  background: transparent !important;
+  border: 1px solid transparent !important; /* no visible box by default */
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+.header .nav-toggle:hover{
+  border-color: rgba(255,255,255,0.22) !important;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.10), 0 0 18px rgba(170,200,255,0.35) !important;
+}
+.header .nav-toggle:active{
+  transform: translateY(1px);
+}
+.header .nav-toggle:focus{
+  outline: none !important;
+}
+.header .nav-toggle:focus-visible{
+  border-color: rgba(255,255,255,0.28) !important;
+  box-shadow: 0 0 0 2px rgba(180,210,255,0.22), 0 0 22px rgba(170,200,255,0.40) !important;
+}
+
+</style>
 </head>
 <body>
     <!-- Header -->
@@ -787,5 +811,96 @@ setOpen(!nav.classList.contains('open'));
         setOpen(false);
     })();
     </script>
+
+<script>
+
+/* --- Futuristic UI Sound (WebAudio, no external files) --- */
+(function(){
+  let audioEnabled = false;
+  let ctx = null;
+  let lastPlay = 0;
+
+  function ensureCtx(){
+    if (!ctx){
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return null;
+      ctx = new AC();
+    }
+    return ctx;
+  }
+
+  function unlockAudio(){
+    audioEnabled = true;
+    const c = ensureCtx();
+    if (c && c.state === "suspended") c.resume();
+    window.removeEventListener("pointerdown", unlockAudio, true);
+    window.removeEventListener("keydown", unlockAudio, true);
+  }
+
+  // Unlock on first real user gesture
+  window.addEventListener("pointerdown", unlockAudio, true);
+  window.addEventListener("keydown", unlockAudio, true);
+
+  function playBlip(strength=1){
+    const now = performance.now();
+    if (now - lastPlay < 90) return; // throttle
+    lastPlay = now;
+
+    const c = ensureCtx();
+    if (!c || !audioEnabled) return;
+
+    const t0 = c.currentTime;
+    const dur = 0.08;
+
+    // Main tone with quick pitch slide (sci-fi)
+    const osc = c.createOscillator();
+    osc.type = "triangle";
+    osc.frequency.setValueAtTime(780, t0);
+    osc.frequency.exponentialRampToValueAtTime(520, t0 + dur);
+
+    // A tiny "spark" overtone
+    const osc2 = c.createOscillator();
+    osc2.type = "sine";
+    osc2.frequency.setValueAtTime(1320, t0);
+    osc2.frequency.exponentialRampToValueAtTime(980, t0 + dur);
+
+    // Gain envelope
+    const g = c.createGain();
+    g.gain.setValueAtTime(0.0001, t0);
+    g.gain.exponentialRampToValueAtTime(0.12 * strength, t0 + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+
+    // Soft filter for "polished" click
+    const f = c.createBiquadFilter();
+    f.type = "highpass";
+    f.frequency.setValueAtTime(300, t0);
+
+    osc.connect(f);
+    osc2.connect(f);
+    f.connect(g);
+    g.connect(c.destination);
+
+    osc.start(t0);
+    osc2.start(t0);
+    osc.stop(t0 + dur);
+    osc2.stop(t0 + dur);
+  }
+
+  function attach(){
+    const btn = document.querySelector(".header .nav-toggle");
+    if (!btn) return;
+    btn.addEventListener("mouseenter", ()=>playBlip(0.7));
+    btn.addEventListener("focus", ()=>playBlip(0.6));
+    btn.addEventListener("click", ()=>playBlip(1.0));
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", attach);
+  } else {
+    attach();
+  }
+})();
+
+</script>
 </body>
 </html>
