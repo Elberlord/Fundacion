@@ -11,7 +11,12 @@
     <style>
 
 
+
         /* Reset y estilos base */
+
+        :root{
+            --page-bg: #F3F7FF; /* alegre pero formal */
+        }
         * {
             margin: 0;
             padding: 0;
@@ -22,7 +27,7 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f9f9f9;
+            background-color: var(--page-bg);
         }
         
         .container {
@@ -167,11 +172,11 @@
         }
         
         .section-dark {
-            background: #fff;
+            background: var(--page-bg);
         }
         
         .section-light {
-            background: #f8f9fa;
+            background: var(--page-bg);
         }
         
         .section-cta {
@@ -229,6 +234,119 @@
             }
         }
     
+    
+    
+
+        /* Conócenos: carrusel (NO toca tu galería 2024) */
+        .cn-carousel{
+            margin-top: 2rem;
+            position: relative;
+        }
+        .cn-track{
+            display: flex;
+            gap: 14px;
+            padding: 14px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            border-radius: 14px;
+            background: #0b1220;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        }
+        .cn-track::-webkit-scrollbar{
+            height: 10px;
+        }
+        .cn-track::-webkit-scrollbar-thumb{
+            background: rgba(255,255,255,0.20);
+            border-radius: 999px;
+        }
+        .cn-track::-webkit-scrollbar-track{
+            background: rgba(255,255,255,0.06);
+        }
+        .cn-slide{
+            flex: 0 0 78%;
+            scroll-snap-align: center;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+            position: relative;
+        }
+        .cn-iframe{
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: 0;
+            display: block;
+        }
+        .cn-caption{
+            color: rgba(255,255,255,0.92);
+            font-size: 0.95rem;
+            padding: 10px 12px 12px;
+            background: linear-gradient(180deg, rgba(11,18,32,0.0) 0%, rgba(11,18,32,0.72) 55%, rgba(11,18,32,0.92) 100%);
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .cn-btn{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            border: 1px solid rgba(0,0,0,0.08);
+            background: rgba(255,255,255,0.88);
+            color: #111;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            z-index: 2;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+            user-select: none;
+        }
+        .cn-btn:hover{ filter: brightness(0.98); }
+        .cn-btn:active{ transform: translateY(-50%) scale(0.98); }
+        .cn-prev{ left: 10px; }
+        .cn-next{ right: 10px; }
+
+        @media (max-width: 768px) {
+            .cn-slide{ flex-basis: 92%; }
+        }
+        @media (min-width: 1024px){
+            .cn-slide{ flex-basis: 60%; }
+        }
+
+    
+
+        /* Galería 2024: carrusel dentro del placeholder (toca SOLO esta zona) */
+
+        /* Galería 2024: videos (Drive) - NO carrusel */
+        .video-placeholder.has-videos{
+            height: auto;
+            display: block;
+            padding: 14px;
+            background: #ddd;
+        }
+        .galeria-videos{
+            display: grid;
+            gap: 14px;
+        }
+        .galeria-video{
+            border-radius: 10px;
+            overflow: hidden;
+            background: #000;
+        }
+        .galeria-iframe{
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: 0;
+            display: block;
+        }
+        @media (min-width: 900px){
+            .galeria-videos{
+                grid-template-columns: 1fr 1fr;
+            }
+        }
     
     </style>
 </head>
@@ -298,14 +416,79 @@
             
             <!-- Espacio para tus videos -->
             <div class="video-gallery">
-                <div class="video-placeholder">
-                    <p>🎥 Aquí irán tus videos del año pasado</p>
+                
+                                <div class="video-placeholder has-videos" aria-label="Galería 2024">
+                    <div class="galeria-videos">
+                        <div class="galeria-video">
+                            <iframe class="galeria-iframe"
+                                src="https://drive.google.com/file/d/10nYPj7oULIWBDEuPBH8hG-zwtTv81qLE/preview"
+                                title="Galería 2024 - Video 1"
+                                loading="lazy"
+                                allow="autoplay"
+                                allowfullscreen></iframe>
+                        </div>
+
+                        <div class="galeria-video">
+                            <iframe class="galeria-iframe"
+                                src="https://drive.google.com/file/d/1aY94cfLokxp_1nMe7syqsgk_WvjkWg11/preview"
+                                title="Galería 2024 - Video 2"
+                                loading="lazy"
+                                allow="autoplay"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
+    
+
+    <!-- Conócenos / Llamado a la acción -->
+    <section class="section section-dark" id="conocenos">
+        <div class="container">
+            <h2>Conócenos</h2>
+            <p>Mensaje y llamado a la acción de parte de los organizadores de la Fundación Sonrisas.</p>
+
+            <div class="cn-carousel" aria-label="Carrusel Conócenos">
+                <button class="cn-btn cn-prev" type="button" aria-label="Video anterior" data-cn-prev>‹</button>
+
+                <div class="cn-track" data-cn-track>
+                    <!-- Slide 1 -->
+                    <div class="cn-slide">
+                        <iframe class="cn-iframe"
+                            src="https://www.youtube-nocookie.com/embed/VLGZ_69knKk?rel=0&modestbranding=1"
+                            title="Agradecimiento especial - Fundación Sonrisas"
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        <div class="cn-caption">💛 Agradecimiento especial • Organizadores en persona</div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="cn-slide">
+                        <iframe class="cn-iframe"
+                            src="https://www.youtube-nocookie.com/embed/ppjtARtzFUU?rel=0&modestbranding=1"
+                            title="Mensaje - Fundación Sonrisas"
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        <div class="cn-caption">Conócenos • Mensaje adicional</div>
+                    </div>
+
+                    <!-- Para agregar más videos: copia un bloque .cn-slide y cambia el ID del embed -->
+                </div>
+
+                <button class="cn-btn cn-next" type="button" aria-label="Siguiente video" data-cn-next>›</button>
+            </div>
+
+            <noscript>
+                <p style="margin-top: 12px;">Activa JavaScript para usar las flechas del carrusel (igual puedes deslizar).</p>
+            </noscript>
+        </div>
+    </section>
+
+<!-- CTA -->
     <section class="section section-cta" id="donar">
         <div class="container">
             <h2>¿Quieres Ser Parte del Cambio?</h2>
@@ -344,5 +527,35 @@
             });
         });
     </script>
-</body>
+
+
+    <script>
+        // Conócenos carrusel arrows (aislado, no toca nada más)
+        document.addEventListener('DOMContentLoaded', function () {
+            const track = document.querySelector('[data-cn-track]');
+            const prev = document.querySelector('[data-cn-prev]');
+            const next = document.querySelector('[data-cn-next]');
+            if (!track || !prev || !next) return;
+
+            const getStep = () => {
+                const first = track.querySelector('.cn-slide');
+                if (!first) return track.clientWidth;
+                const style = window.getComputedStyle(track);
+                const gap = parseFloat(style.columnGap || style.gap || '0') || 0;
+                return first.getBoundingClientRect().width + gap;
+            };
+
+            prev.addEventListener('click', () => {
+                track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+            });
+
+            next.addEventListener('click', () => {
+                track.scrollBy({ left: getStep(), behavior: 'smooth' });
+            });
+        });
+    </script>
+
+
+
+    </body>
 </html>
