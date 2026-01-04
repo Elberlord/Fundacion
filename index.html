@@ -11,8 +11,6 @@
     <style>
 
 
-
-
         /* Reset y estilos base */
         * {
             margin: 0;
@@ -84,16 +82,6 @@
             opacity: 0.88;
         }
 
-        .hero-badge{
-            display: inline-block;
-            padding: 0.45rem 0.8rem;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.18);
-            backdrop-filter: blur(6px);
-            font-size: 0.95rem;
-            margin-bottom: 1.25rem;
-        }
 
         /* Navegación */
         .nav {
@@ -232,188 +220,6 @@
         }
     
     
-    
-
-        /* Conócenos: carrusel (NO toca tu galería 2024) */
-        .cn-carousel{
-            margin-top: 2rem;
-            position: relative;
-        }
-        .cn-track{
-            display: flex;
-            gap: 14px;
-            padding: 14px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            border-radius: 14px;
-            background: #0b1220;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-        }
-        .cn-track::-webkit-scrollbar{
-            height: 10px;
-        }
-        .cn-track::-webkit-scrollbar-thumb{
-            background: rgba(255,255,255,0.20);
-            border-radius: 999px;
-        }
-        .cn-track::-webkit-scrollbar-track{
-            background: rgba(255,255,255,0.06);
-        }
-        .cn-slide{
-            flex: 0 0 78%;
-            scroll-snap-align: center;
-            border-radius: 12px;
-            overflow: hidden;
-            background: #000;
-            position: relative;
-        }
-        .cn-iframe{
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            border: 0;
-            display: block;
-        }
-        .cn-caption{
-            color: rgba(255,255,255,0.92);
-            font-size: 0.95rem;
-            padding: 10px 12px 12px;
-            background: linear-gradient(180deg, rgba(11,18,32,0.0) 0%, rgba(11,18,32,0.72) 55%, rgba(11,18,32,0.92) 100%);
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-        .cn-btn{
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 44px;
-            height: 44px;
-            border-radius: 999px;
-            border: 1px solid rgba(0,0,0,0.08);
-            background: rgba(255,255,255,0.88);
-            color: #111;
-            cursor: pointer;
-            display: grid;
-            place-items: center;
-            z-index: 2;
-            box-shadow: 0 10px 24px rgba(0,0,0,0.14);
-            user-select: none;
-        }
-        .cn-btn:hover{ filter: brightness(0.98); }
-        .cn-btn:active{ transform: translateY(-50%) scale(0.98); }
-        .cn-prev{ left: 10px; }
-        .cn-next{ right: 10px; }
-
-        @media (max-width: 768px) {
-            .cn-slide{ flex-basis: 92%; }
-        }
-        @media (min-width: 1024px){
-            .cn-slide{ flex-basis: 60%; }
-        }
-
-    
-
-        /* Galería 2024: carrusel dentro del placeholder (toca SOLO esta zona) */
-
-        /* Galería 2024: videos (Drive) - NO carrusel */
-        .video-placeholder.has-videos{
-            height: auto;
-            display: block;
-            padding: 14px;
-            background: #ddd;
-        }
-        .galeria-videos{
-            display: grid;
-            gap: 14px;
-        }
-        .galeria-video{
-            border-radius: 10px;
-            overflow: hidden;
-            background: #000;
-        }
-        .galeria-iframe{
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            border: 0;
-            display: block;
-        }
-        @media (min-width: 900px){
-            .galeria-videos{
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        /* =========================================================
-           THEME OVERRIDE: Azul oscuro con brillo plateado (uniforme)
-        ========================================================== */
-        :root{
-            --bg-deep: #050816;
-            --bg-mid:  #06122c;
-            --bg-top:  #071a3a;
-            --silver-1: rgba(235,240,255,0.22);
-            --silver-2: rgba(210,220,255,0.16);
-            --text: rgba(245,248,255,0.96);
-            --muted: rgba(245,248,255,0.78);
-            --panel: rgba(255,255,255,0.06);
-            --panel-border: rgba(255,255,255,0.12);
-        }
-
-        html, body{
-            background:
-                radial-gradient(900px 560px at 12% 8%,  var(--silver-1), transparent 62%),
-                radial-gradient(820px 520px at 88% 22%, var(--silver-2), transparent 64%),
-                radial-gradient(720px 520px at 55% 96%, rgba(255,255,255,0.10), transparent 66%),
-                linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 48%, var(--bg-deep) 100%) !important;
-            background-attachment: fixed;
-            color: var(--text) !important;
-        }
-
-        /* Unificar fondo en TODO (no tocamos el hero si ya tiene imagen) */
-        .section, .section-light, .section-dark, .section-cta{
-            background: transparent !important;
-        }
-
-        /* Contenedor tipo "glass" para legibilidad (sin cambiar layout) */
-        .section .container, .section-cta .container{
-            background: var(--panel);
-            border: 1px solid var(--panel-border);
-            border-radius: 18px;
-            padding: 28px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        h1, h2, h3{ color: var(--text) !important; }
-        p, li{ color: var(--muted) !important; }
-
-        /* Barra de navegación */
-        .nav{
-            background: rgba(5,8,22,0.72) !important;
-            border-bottom: 1px solid rgba(255,255,255,0.10) !important;
-            box-shadow: none !important;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-        .nav a{
-            color: rgba(245,248,255,0.88) !important;
-        }
-        .nav a:hover{
-            color: rgba(255,255,255,1) !important;
-        }
-
-        /* Placeholder / área de videos */
-        .video-placeholder, .video-placeholder.has-videos{
-            background: rgba(255,255,255,0.06) !important;
-            color: rgba(245,248,255,0.86) !important;
-            border: 1px solid rgba(255,255,255,0.12) !important;
-        }
-
-        /* Iframes de galería */
-        .galeria-video{
-            border: 1px solid rgba(255,255,255,0.10) !important;
-        }
     </style>
 </head>
 <body>
@@ -442,11 +248,9 @@
     <!-- Hero Section -->
     <section class="hero" id="inicio" aria-label="Banner principal Fundación Sonrisas">
         <div class="hero-content">
-            <div class="hero-badge">Navidad 2024 • Entrega de regalos</div>
             <h1>350 Sonrisas, Un Solo Corazón</h1>
             <p>Compartimos con diferentes iglesias y entregamos regalos a niños y familias. Tu apoyo convierte donaciones en momentos que se quedan para siempre.</p>
-            <a class="cta-button" href="#galeria">Ver evidencia</a>
-        </div>
+            </div>
     </section>
 
     <!-- Misión -->
@@ -482,79 +286,14 @@
             
             <!-- Espacio para tus videos -->
             <div class="video-gallery">
-                
-                                <div class="video-placeholder has-videos" aria-label="Galería 2024">
-                    <div class="galeria-videos">
-                        <div class="galeria-video">
-                            <iframe class="galeria-iframe"
-                                src="https://drive.google.com/file/d/10nYPj7oULIWBDEuPBH8hG-zwtTv81qLE/preview"
-                                title="Galería 2024 - Video 1"
-                                loading="lazy"
-                                allow="autoplay"
-                                allowfullscreen></iframe>
-                        </div>
-
-                        <div class="galeria-video">
-                            <iframe class="galeria-iframe"
-                                src="https://drive.google.com/file/d/1aY94cfLokxp_1nMe7syqsgk_WvjkWg11/preview"
-                                title="Galería 2024 - Video 2"
-                                loading="lazy"
-                                allow="autoplay"
-                                allowfullscreen></iframe>
-                        </div>
-                    </div>
+                <div class="video-placeholder">
+                    <p>🎥 Aquí irán tus videos del año pasado</p>
                 </div>
             </div>
         </div>
     </section>
 
-    
-
-    <!-- Conócenos / Llamado a la acción -->
-    <section class="section section-dark" id="conocenos">
-        <div class="container">
-            <h2>Conócenos</h2>
-            <p>Mensaje y llamado a la acción de parte de los organizadores de la Fundación Sonrisas.</p>
-
-            <div class="cn-carousel" aria-label="Carrusel Conócenos">
-                <button class="cn-btn cn-prev" type="button" aria-label="Video anterior" data-cn-prev>‹</button>
-
-                <div class="cn-track" data-cn-track>
-                    <!-- Slide 1 -->
-                    <div class="cn-slide">
-                        <iframe class="cn-iframe"
-                            src="https://www.youtube-nocookie.com/embed/VLGZ_69knKk?rel=0&modestbranding=1"
-                            title="Agradecimiento especial - Fundación Sonrisas"
-                            loading="lazy"
-                            allowfullscreen
-                            referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                        <div class="cn-caption">💛 Agradecimiento especial • Organizadores en persona</div>
-                    </div>
-
-                    <!-- Slide 2 -->
-                    <div class="cn-slide">
-                        <iframe class="cn-iframe"
-                            src="https://www.youtube-nocookie.com/embed/ppjtARtzFUU?rel=0&modestbranding=1"
-                            title="Mensaje - Fundación Sonrisas"
-                            loading="lazy"
-                            allowfullscreen
-                            referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                        <div class="cn-caption">Conócenos • Mensaje adicional</div>
-                    </div>
-
-                    <!-- Para agregar más videos: copia un bloque .cn-slide y cambia el ID del embed -->
-                </div>
-
-                <button class="cn-btn cn-next" type="button" aria-label="Siguiente video" data-cn-next>›</button>
-            </div>
-
-            <noscript>
-                <p style="margin-top: 12px;">Activa JavaScript para usar las flechas del carrusel (igual puedes deslizar).</p>
-            </noscript>
-        </div>
-    </section>
-
-<!-- CTA -->
+    <!-- CTA -->
     <section class="section section-cta" id="donar">
         <div class="container">
             <h2>¿Quieres Ser Parte del Cambio?</h2>
@@ -566,7 +305,7 @@
     <!-- Footer -->
     <footer class="footer" id="contacto">
         <div class="container">
-            <p>Whatsapp: +506 7205 6325 | 📞 +506 7205 6325 | Facebook: https://www.facebook.com/profile.php?id=61585114094717</p>
+            <p>📧 contacto@fundacionsonrisas.org | 📞 +57 300 123 4567</p>
             <p>&copy; 2024 Fundación Sonrisas. Todos los derechos reservados.</p>
         </div>
     </footer>
@@ -593,35 +332,5 @@
             });
         });
     </script>
-
-
-    <script>
-        // Conócenos carrusel arrows (aislado, no toca nada más)
-        document.addEventListener('DOMContentLoaded', function () {
-            const track = document.querySelector('[data-cn-track]');
-            const prev = document.querySelector('[data-cn-prev]');
-            const next = document.querySelector('[data-cn-next]');
-            if (!track || !prev || !next) return;
-
-            const getStep = () => {
-                const first = track.querySelector('.cn-slide');
-                if (!first) return track.clientWidth;
-                const style = window.getComputedStyle(track);
-                const gap = parseFloat(style.columnGap || style.gap || '0') || 0;
-                return first.getBoundingClientRect().width + gap;
-            };
-
-            prev.addEventListener('click', () => {
-                track.scrollBy({ left: -getStep(), behavior: 'smooth' });
-            });
-
-            next.addEventListener('click', () => {
-                track.scrollBy({ left: getStep(), behavior: 'smooth' });
-            });
-        });
-    </script>
-
-
-
-    </body>
+</body>
 </html>
