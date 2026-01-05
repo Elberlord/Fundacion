@@ -662,6 +662,42 @@
   box-shadow: 0 0 10px rgba(110,220,255,0.22);
 }
 
+
+
+/* FINAL OVERRIDE: acciones del nav sin “cuadro” (sin tinte) */
+.header .nav-actions,
+.header #navActions{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.header .social-btn,
+.header .nav-toggle{
+  background: transparent !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  -webkit-tap-highlight-color: transparent;
+  border: 1px solid transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.header .social-btn:hover,
+.header .nav-toggle:hover{
+  border-color: rgba(255,255,255,0.18) !important;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 0 18px rgba(88,190,255,0.22) !important;
+  transform: translateY(-1px);
+}
+
+.header .social-btn:active,
+.header .nav-toggle:active{
+  transform: translateY(0px) scale(0.98);
+}
+
 </style>
 </head>
 <body>
