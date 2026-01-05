@@ -340,9 +340,9 @@
            THEME OVERRIDE: Azul oscuro con brillo plateado (uniforme)
         ========================================================== */
         :root{
-            --bg-deep: #050816;
-            --bg-mid:  #06122c;
-            --bg-top:  #071a3a;
+            --bg-deep: #2C303E;
+            --bg-mid:  #2C303E;
+            --bg-top:  #2C303E;
             --silver-1: rgba(235,240,255,0.22);
             --silver-2: rgba(210,220,255,0.16);
             --text: rgba(245,248,255,0.96);
@@ -771,6 +771,41 @@
             border-color: rgba(190,220,255,0.55) !important;
             box-shadow: 0 0 0 2px rgba(190,220,255,0.25), 0 0 20px rgba(190,220,255,0.25) !important;
         }
+
+
+/* === FINAL OVERRIDE (fix: remove the “blue box” behind the top-right buttons) === */
+header.header .nav,
+.header .nav,
+nav.nav{
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Make the action buttons fully blend with the header (no square/capsule behind them) */
+.nav-actions,
+.nav-actions *{
+  background: transparent !important;
+}
+
+/* Keep buttons readable + add subtle glow on hover */
+.nav-btn,
+#navToggle{
+  background: transparent !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  box-shadow: none !important;
+}
+
+.nav-btn:hover,
+#navToggle:hover{
+  border-color: rgba(0,255,205,0.55) !important;
+  box-shadow:
+    0 0 0 2px rgba(0,255,205,0.15),
+    0 0 18px rgba(0,255,205,0.22) !important;
+}
 
 </style>
 </head>
