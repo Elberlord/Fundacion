@@ -596,18 +596,33 @@
 .nav-actions::before,
 .nav-actions::after{ content: none !important; }
 
-/* Botones: sin fondo (solo borde). Brillo al hover/focus */
-.icon-btn,
-.menu-toggle{
+/* Botones (Facebook / WhatsApp / Hamburguesa): SIN contraste por defecto.
+   El brillo “futurista” aparece solo en hover/focus. */
+.social-btn,
+.header .nav-toggle{
   background: transparent !important;
-  box-shadow: none;
-}
-.icon-btn:hover, .menu-toggle:hover{
-  box-shadow: 0 0 14px rgba(0, 255, 205, 0.35), 0 0 0 1px rgba(255,255,255,0.12);
-}
-.icon-btn:focus-visible, .menu-toggle:focus-visible{
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
   outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 255, 205, 0.45), 0 0 16px rgba(0, 255, 205, 0.25);
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .12s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.social-btn:hover,
+.header .nav-toggle:hover,
+.social-btn:focus-visible,
+.header .nav-toggle:focus-visible{
+  background: rgba(255,255,255,0.04) !important;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.14), 0 0 18px rgba(0, 255, 205, 0.45) !important;
+  transform: translateY(-1px);
+}
+
+.social-btn:active,
+.header .nav-toggle:active{
+  transform: translateY(0);
+  background: rgba(255,255,255,0.02) !important;
 }
 
 </style>
