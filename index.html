@@ -625,6 +625,43 @@
   background: rgba(255,255,255,0.02) !important;
 }
 
+
+
+/* v12: nav action buttons blend with header (no contrasting panel) */
+.header .nav-actions{
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+.header .nav-actions .social-btn,
+.header .nav-actions .nav-toggle{
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  box-shadow: none !important;
+}
+.header .nav-actions .social-btn:hover,
+.header .nav-actions .nav-toggle:hover,
+.header .nav-actions .social-btn:focus-visible,
+.header .nav-actions .nav-toggle:focus-visible{
+  background: rgba(255,255,255,0.06) !important;
+  border-color: rgba(255,255,255,0.22) !important;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.10), 0 0 16px rgba(110,220,255,0.35) !important;
+}
+.header .nav-actions .social-btn:active,
+.header .nav-actions .nav-toggle:active{
+  background: rgba(255,255,255,0.10) !important;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.14), 0 0 22px rgba(110,220,255,0.45) !important;
+}
+.header .nav-actions .social-btn i{
+  filter: drop-shadow(0 0 6px rgba(110,220,255,0.25));
+}
+.header .nav-actions .nav-toggle span{
+  box-shadow: 0 0 10px rgba(110,220,255,0.22);
+}
+
 </style>
 </head>
 <body>
