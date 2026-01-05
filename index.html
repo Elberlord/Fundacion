@@ -469,7 +469,8 @@
         }
         
 /* Social links (Facebook / WhatsApp) */
-.nav-actions{
+.nav-actions,
+#navActions{
   display:flex;
   align-items:center;
   gap:10px;
@@ -581,6 +582,32 @@
 .header .nav-toggle:focus-visible{
   border-color: rgba(255,255,255,0.28) !important;
   box-shadow: 0 0 0 2px rgba(180,210,255,0.22), 0 0 22px rgba(170,200,255,0.40) !important;
+}
+
+/* --- FIX: quitar el "cuadro" detrás del grupo de botones (Facebook/WhatsApp/Hamburguesa) --- */
+.nav-actions,
+#navActions{
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  padding: 0 !important;
+}
+.nav-actions::before,
+.nav-actions::after{ content: none !important; }
+
+/* Botones: sin fondo (solo borde). Brillo al hover/focus */
+.icon-btn,
+.menu-toggle{
+  background: transparent !important;
+  box-shadow: none;
+}
+.icon-btn:hover, .menu-toggle:hover{
+  box-shadow: 0 0 14px rgba(0, 255, 205, 0.35), 0 0 0 1px rgba(255,255,255,0.12);
+}
+.icon-btn:focus-visible, .menu-toggle:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 255, 205, 0.45), 0 0 16px rgba(0, 255, 205, 0.25);
 }
 
 </style>
