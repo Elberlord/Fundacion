@@ -807,6 +807,35 @@ nav.nav{
     0 0 18px rgba(0,255,205,0.22) !important;
 }
 
+
+        .footer .contact-links{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:18px;
+            flex-wrap:wrap;
+            margin-bottom:0.75rem;
+        }
+        .footer .contact-links a{
+            color:#fff;
+            text-decoration:none;
+            display:inline-flex;
+            align-items:center;
+            gap:10px;
+            opacity:0.9;
+            font-size:0.98rem;
+        }
+        .footer .contact-links a:hover{
+            opacity:1;
+            text-shadow:0 0 12px rgba(255,255,255,0.22);
+        }
+        .footer .contact-links svg{
+            width:18px;
+            height:18px;
+            flex:none;
+            fill: currentColor;
+        }
+
 </style>
 </head>
 <body>
@@ -971,14 +1000,29 @@ nav.nav{
         <div class="container">
             <h2>¿Quieres Ser Parte del Cambio?</h2>
             <p>Conviértete en padrino y regala una sonrisa esta navidad</p>
-            <button class="cta-button">Quiero Ser Padrino</button>
+            <a class="cta-button" href="https://wa.me/50672056325?text=Hola%2C%20quiero%20ser%20padrino%20y%20apoyar%20a%20Fundaci%C3%B3n%20Sonrisas." target="_blank" rel="noopener">Quiero Ser Padrino</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer" id="contacto">
         <div class="container">
-            <p>📧 contacto@fundacionsonrisas.org | 📞 +57 300 123 4567</p>
+            <div class="contact-links">
+                <a href="https://wa.me/50672056325" target="_blank" rel="noopener" aria-label="WhatsApp">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M20 12a8 8 0 0 1-11.9 7L4 20l1-3.9A8 8 0 1 1 20 12z"/>
+                        <path d="M9.3 9.4c.2-.4.4-.4.6-.4h.5c.2 0 .4.1.5.3l.8 1.9c.1.2.1.4 0 .6l-.3.5c-.1.2-.1.3 0 .5.3.5 1.1 1.4 2.3 1.9.2.1.4.1.5 0l.5-.4c.2-.1.4-.1.6 0l1.9.9c.2.1.3.3.3.5 0 .8-.4 1.5-1 2-.6.5-1.3.6-2 .4-2.3-.6-4.2-2-5.6-3.9-1-1.3-1.6-2.9-1.6-3.7 0-.7.2-1.4.6-1.9z"/>
+                    </svg>
+                    <span>WhatsApp: +506 7205 6325</span>
+                </a>
+
+                <a href="https://www.facebook.com/profile.php?id=61585114094717" target="_blank" rel="noopener" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M14 8.5V7c0-.8.4-1 1-1h2V3h-3c-2.8 0-4 1.7-4 4v1.5H8V12h2v9h4v-9h2.7l.3-3.5H14z"/>
+                    </svg>
+                    <span>Facebook</span>
+                </a>
+            </div>
             <p>&copy; 2024 Fundación Sonrisas. Todos los derechos reservados.</p>
         </div>
     </footer>
@@ -995,15 +1039,7 @@ nav.nav{
                     });
                 });
             });
-            
-            // Animación para los botones CTA
-            const ctaButtons = document.querySelectorAll('.cta-button');
-            ctaButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    alert('¡Gracias por tu interés! Pronto tendremos el formulario de padrinos activo.');
-                });
-            });
-        });
+});
     </script>
 
 
